@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:pujapurohit/blocs/auth_bloc.dart';
+import 'package:pujapurohit/books.dart';
 import 'package:pujapurohit/services/signin.dart';
+import 'package:pujapurohit/splash_screen.dart';
 
 import 'home_page.dart';
 import 'localization_service.dart';
+import 'books.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +39,8 @@ class MyApp extends StatelessWidget {
       home: SignIn(),
       routes: <String, WidgetBuilder> {
         '/HomePage' : (BuildContext context) => HomePage(),
+        '/BooksPage' : (BuildContext context) => BooksPage(),
+        '/SplashScreen' : (BuildContext context) => SplashScreen(),
       },
     )
     );

@@ -32,7 +32,7 @@ class _SignInState extends State<SignIn> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           SignInButton(
             Buttons.Google,
-            onPressed: () => authBloc.loginGoogle(),
+            onPressed: () {authBloc.loginGoogle();},
           ),
         ]),
       ),

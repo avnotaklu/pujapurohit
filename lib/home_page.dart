@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _uiWidget(int offset) {
+
     List<String> gridMembersText = [
       "e-books",
       "magazine",
@@ -44,6 +45,11 @@ class _HomePageState extends State<HomePage> {
       "mantra",
       "shlok"
     ];
+
+    List<String> gridMembersPath = [
+      "/BooksPage",
+    ];
+
 
     return Center(
       child: Column(
@@ -137,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSpacing: 0),
             itemBuilder: (context, index) => Container(
               child: TextButton(
-                onPressed: () => {},
+                onPressed: () => {Navigator.of(context).pushReplacementNamed(gridMembersPath[index])},
                 style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.orange.shade100)),
                 child: Column(
                   children: [

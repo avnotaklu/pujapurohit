@@ -63,77 +63,23 @@ class _BooksPageState extends State<BooksPage> {
             SizedBox(
               height: 10,
             ),
-            CarouselSlider(items: [
-              InkWell(
-
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    image: DecorationImage(image: AssetImage('lib/assest/image/Mahadev.jpg'),
-                    fit: BoxFit.cover,
-                    ),
-
+            CarouselSlider(
+                items: [
+                  InkWell(
+                    child: EBookCarousalTile(),
                   ),
-                ),
-              ),
-
-              //second container
-
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  image: DecorationImage(image: AssetImage('lib/assest/image/Mahadev.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-              ),
-
-              //third container
-
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  image: DecorationImage(image: AssetImage('lib/assest/image/Mahadev.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-              ),
-
-              //fourth container
-
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  image: DecorationImage(image: AssetImage('lib/assest/image/Mahadev.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-              ),
-
-              //fifth container
-
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  image: DecorationImage(image: AssetImage('lib/assest/image/Mahadev.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-              )
-
-            ],
+                  EBookCarousalTile(),
+                  EBookCarousalTile(),
+                  EBookCarousalTile(),
+                  EBookCarousalTile(),
+                ],
                 options: CarouselOptions(
                   height: 200,
                   autoPlay: true,
                   autoPlayCurve: Curves.easeInOut,
                   enlargeCenterPage: true,
                   reverse: true,
-                )
-            ),
+                )),
             Padding(
               padding: EdgeInsets.only(left: 20, top: 40),
               child: Text(
@@ -149,51 +95,53 @@ class _BooksPageState extends State<BooksPage> {
             Padding(
               padding: EdgeInsets.all(20.0),
               child: Container(
-
-                 height: 150,
+                height: 150,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    Container(
-                      width: 180,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        image: DecorationImage(
-                          image:
-                              AssetImage('lib/assest/image/radhe-krishna.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width:15),
-                    Container(
-                      width: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        image: DecorationImage(
-                          image:
-                          AssetImage('lib/assest/image/radhe-krishna.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width:20),
-                    Container(
-                      width: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        image: DecorationImage(
-                          image:
-                          AssetImage('lib/assest/image/radhe-krishna.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                    EBookListTile(),
+                    SizedBox(width: 15),
+                    EBookListTile(),
+                    SizedBox(width: 20),
+                    EBookListTile(),
                   ],
                 ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class EBookCarousalTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        image: DecorationImage(
+          image: AssetImage('lib/assets/images/Mahadev.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
+
+class EBookListTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      width: 160,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        image: DecorationImage(
+          image: AssetImage('lib/assets/images/radhe-krishna.jpg'),
+          fit: BoxFit.cover,
         ),
       ),
     );

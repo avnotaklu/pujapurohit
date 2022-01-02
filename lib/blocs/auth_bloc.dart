@@ -11,8 +11,8 @@ class AuthBloc {
 
   loginGoogle() async {
     try {
-      Future<GoogleSignInAccount?>  googleUser  () async => await googleSignIn.signIn();
-      GoogleSignInAuthentication googleAuth = await googleUser().then((value) => value!.authentication);
+      Future<GoogleSignInAccount?>  googleUser () async  { print("googleuserinit") ; return await googleSignIn.signIn();  } ;
+      GoogleSignInAuthentication googleAuth = await () async { print("signinauth"); return await googleUser().then((value) {   return value!.authentication;});}();
       final AuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,
         accessToken: googleAuth.accessToken

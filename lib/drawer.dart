@@ -132,6 +132,19 @@ class _MyDrawerState extends State<MyDrawer> {
                       ),
                     ],
                   )),
+              ListTile(
+                onTap: () {authBloc.logout();Navigator.of(context).pushReplacementNamed('/SignIn'); },
+                leading: Icon(
+                  CupertinoIcons.mail,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  "Logout",
+                  textScaleFactor: 1.2,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
             ],
           ),
         ),

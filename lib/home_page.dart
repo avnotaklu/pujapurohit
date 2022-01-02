@@ -36,7 +36,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _uiWidget(int offset) {
-
     List<String> gridMembersText = [
       "e-books",
       "magazine",
@@ -50,7 +49,6 @@ class _HomePageState extends State<HomePage> {
       "/BooksPage",
     ];
 
-
     return Center(
       child: Column(
         children: [
@@ -63,121 +61,131 @@ class _HomePageState extends State<HomePage> {
             thickness: 2,
             color: Colors.white,
           ),
-          Container(
-            height: 240,
+          Expanded(
+            flex: 4,
             child: Column(
               children: [
-                Container(
-                  child: IconTheme(
-                    data: IconThemeData(color: Colors.white),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.subject),
-                              Text(
-                                "subject".tr,
-                                style: TextStyle(fontSize: 10),
+                   Expanded(
+                    flex: 2,
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.orange),
+                      child: IconTheme(
+                        data: IconThemeData(color: Colors.white),
+                        child: // SizedBox.shrink() ,
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.subject),
+                                  Text(
+                                    "subject".tr,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          IconSeperator(),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.category),
-                              Text(
-                                "categories".tr,
-                                style: TextStyle(fontSize: 10),
+                              IconSeperator(),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.category),
+                                  Text(
+                                    "categories".tr,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          IconSeperator(),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.umbrella),
-                              Text(
-                                "writer".tr,
-                                style: TextStyle(fontSize: 10),
+                              IconSeperator(),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.umbrella),
+                                  Text(
+                                    "writer".tr,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          IconSeperator(),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.language),
-                              Text(
-                                "language".tr,
-                                style: TextStyle(fontSize: 10),
+                              IconSeperator(),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.language),
+                                  Text(
+                                    "language".tr,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ]),
+                            ]),
+                      ),
+                    ),
                   ),
-                  height: 50,
-                  decoration: BoxDecoration(color: Colors.orange),
-                ),
                 Expanded(
+                  flex: 8,
                   child: Container(
                     child: CarouselFull(),
+                    decoration: BoxDecoration(color: Colors.orange.shade100),
                   ),
                 ),
               ],
             ),
-            decoration: BoxDecoration(color: Colors.amber),
           ),
-          Container(
-            height: 80,
+          Expanded(
+            flex: 1,
+            child : Container(),
           ),
-          GridView.builder(
-            shrinkWrap: true,
-            itemCount: 6,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 2,
-                crossAxisSpacing: 0,
-                mainAxisSpacing: 0),
-            itemBuilder: (context, index) => Container(
-              child: TextButton(
-                onPressed: () => {Navigator.of(context).pushReplacementNamed(gridMembersPath[index])},
-                style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.orange.shade100)),
-                child: Column(
-                  children: [
-                    Text(
-                      gridMembersText[index].tr,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    IconTheme(
-                        data: IconThemeData(color: Colors.orange),
-                        child: Icon(Icons.circle)),
-                  ],
+          Expanded(
+            flex: 4,
+            child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: 6,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 2,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0),
+              itemBuilder: (context, index) => Container(
+                child: TextButton(
+                  onPressed: () => {
+                    Navigator.of(context)
+                        .pushReplacementNamed(gridMembersPath[index])
+                  },
+                  style: ButtonStyle(
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.orange.shade100)),
+                  child: Column(
+                    children: [
+                      Text(
+                        gridMembersText[index].tr,
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      IconTheme(
+                          data: IconThemeData(color: Colors.orange),
+                          child: Icon(Icons.circle)),
+                    ],
+                  ),
                 ),
+                height: 10,
+                width: 10,
               ),
-              height: 10,
-              width: 10,
             ),
           ),
-          Container(
-            height: 50,
+          Expanded(
+            flex: 1,
+            child: IconTheme(
+              data: IconThemeData(color: Colors.orange),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Icon(Icons.star),
+                    Icon(Icons.share),
+                    Icon(Icons.chat),
+                    Icon(Icons.info)
+                  ]),
+            ),
           ),
-          IconTheme(
-            data: IconThemeData(color: Colors.orange),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(Icons.star),
-                  Icon(Icons.share),
-                  Icon(Icons.chat),
-                  Icon(Icons.info)
-                ]),
-          ),
-          Container(
-            height: 20,
-          )
         ],
       ),
     );
@@ -254,11 +262,10 @@ class _CarouselFullState extends State<CarouselFull> {
                 // items: [Container()],),
               ),
               Column(
-                children: [
-                  Container(
-                    height: 150,
-                  ),
-                  PageIndicator(indicatorIndex),
+                children : [ 
+                  Expanded(flex : 9 , child: Container(),),
+            
+                  Expanded(flex : 1 , child: PageIndicator(indicatorIndex)),
                 ],
               )
             ],
@@ -276,7 +283,6 @@ class PageIndicator extends StatefulWidget {
 
 class _PageIndicatorState extends State<PageIndicator> {
   @override
-
   Widget build(BuildContext context) {
     print("constructed");
 

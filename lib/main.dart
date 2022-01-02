@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       ), // specify the fallback locale in case an invalid locale is selected.
       home: SignIn(),
       routes: <String, WidgetBuilder> {
+        '/SignIn' : (BuildContext context) => SignIn(),
         '/HomePage' : (BuildContext context) => HomePage(),
         '/BooksPage' : (BuildContext context) => BooksPage(),
         '/SplashScreen' : (BuildContext context) => SplashScreen(),

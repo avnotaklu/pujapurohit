@@ -71,7 +71,7 @@ class _BooksPageState extends State<BooksPage> {
                   EbookCorousalTile('lib/assets/text/padmapuran.txt',
                       'padmapuran', 'lib/assets/images/Mahadev.jpg'),
                   //second container
-                  EbookCorousalTile('lib/assets/text/vishnupuran.txt',
+                  EbookCorousalTile('lib/assets/text/visnupuran.txt',
                       "vishnupuran", 'lib/assets/images/Mahadev.jpg'),
 
                   //third container
@@ -182,15 +182,22 @@ class EbookCorousalTile extends StatelessWidget {
           ),
         );
       },
-      child: Container(
-        child: Flexible(child: Text(bookTitle)),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          image: DecorationImage(
-            image: AssetImage(imagePath),
-            fit: BoxFit.cover,
+      child: Column(
+      children : [ 
+      Expanded(flex : 1, child: Text(bookTitle, style: TextStyle(color : Colors.white,))),
+      Expanded(
+        flex: 9,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            image: DecorationImage(
+              image: AssetImage(imagePath),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
+      ),
+      ],
       ),
     );
   }

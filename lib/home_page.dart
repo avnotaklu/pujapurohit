@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("Mythology Books"),
+        title: Text("Puja Purohit".tr),
         backgroundColor: Colors.orange,
       ),
       drawer: MyDrawer(),
@@ -65,63 +65,63 @@ class _HomePageState extends State<HomePage> {
             flex: 4,
             child: Column(
               children: [
-                   Expanded(
-                    flex: 2,
-                    child: Container(
-                      decoration: BoxDecoration(color: Colors.orange),
-                      child: IconTheme(
-                        data: IconThemeData(color: Colors.white),
-                        child: // SizedBox.shrink() ,
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.subject),
-                                  Text(
-                                    "subject".tr,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                              IconSeperator(),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.category),
-                                  Text(
-                                    "categories".tr,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                              IconSeperator(),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.umbrella),
-                                  Text(
-                                    "writer".tr,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                              IconSeperator(),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.language),
-                                  Text(
-                                    "language".tr,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                            ]),
-                      ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.orange),
+                    child: IconTheme(
+                      data: IconThemeData(color: Colors.white),
+                      child: // SizedBox.shrink() ,
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.subject),
+                                Text(
+                                  "subject".tr,
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
+                            IconSeperator(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.category),
+                                Text(
+                                  "categories".tr,
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
+                            IconSeperator(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.umbrella),
+                                Text(
+                                  "writer".tr,
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
+                            IconSeperator(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.language),
+                                Text(
+                                  "language".tr,
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
+                          ]),
                     ),
                   ),
+                ),
                 Expanded(
                   flex: 8,
                   child: Container(
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             flex: 1,
-            child : Container(),
+            child: Container(),
           ),
           Expanded(
             flex: 4,
@@ -238,6 +238,8 @@ class _CarouselFullState extends State<CarouselFull> {
                   );
                 },
                 options: CarouselOptions(
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   onPageChanged: ((index, reason) => {
@@ -262,10 +264,12 @@ class _CarouselFullState extends State<CarouselFull> {
                 // items: [Container()],),
               ),
               Column(
-                children : [ 
-                  Expanded(flex : 9 , child: Container(),),
-            
-                  Expanded(flex : 1 , child: PageIndicator(indicatorIndex)),
+                children: [
+                  Expanded(
+                    flex: 9,
+                    child: Container(),
+                  ),
+                  Expanded(flex: 1, child: PageIndicator(indicatorIndex)),
                 ],
               )
             ],

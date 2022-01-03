@@ -12,5 +12,7 @@ const Map<String, String> enUS = {
 "Arti" : "Arti",
 "Mantra" : "Mantra",
 "Shlok" : "Shlok",
-"Puja Purohit" : "Puja Purohit"
+"Puja Purohit" : "Puja Purohit",
+  "Mahapuranas":"Mahapuranas",
+  "Upapuranas":"Upapuranas",
 };

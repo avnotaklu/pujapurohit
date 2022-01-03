@@ -141,22 +141,23 @@ class _BooksPageState extends State<BooksPage> {
             SizedBox(
               height: 25,
             ),
-            GridView.count(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
+               GridView.count(
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
 
-              // Generate 100 widgets that display their index in the List.
-              children: List.generate(
-                8,
-                (index) {
-                    return EbookListTile('lib/assets/text/shivpuran.txt',
-                        'lib/assets/images/radhe-krishna.jpg');
-                },
+                // Generate 100 widgets that display their index in the List.
+                children: List.generate(
+                  8,
+                  (index) {
+                         return EbookListTile('lib/assets/text/shivpuran.txt',
+                            'lib/assets/images/radhe-krishna.jpg');
+                  },
               ),
-            ),
+            )
           ],
         ),
       ),

@@ -184,7 +184,7 @@ class EbookCorousalTile extends StatelessWidget {
       },
       child: Column(
       children : [ 
-      Expanded(flex : 1, child: Text(bookTitle, style: TextStyle(color : Colors.white,))),
+      // Expanded(flex : 1, child: Text(bookTitle, style: TextStyle(color : Colors.white,))),
       Expanded(
         flex: 9,
         child: Container(
@@ -197,6 +197,7 @@ class EbookCorousalTile extends StatelessWidget {
           ),
         ),
       ),
+        Expanded(flex : 1, child: Text(bookTitle, style: TextStyle(color : Colors.white,fontWeight: FontWeight.bold,fontSize: 16))),
       ],
       ),
     );

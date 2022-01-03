@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pujapurohit/Mahapurans/text_reader.dart';
+import 'package:pujapurohit/utils/text_reader.dart';
 import 'package:pujapurohit/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import 'Mahapurans/Bhamha Puran.dart';
-import 'Mahapurans/padmapuran.dart';
 import 'localization_service.dart';
 import 'package:get/get.dart';
 
@@ -68,6 +66,8 @@ class _BooksPageState extends State<BooksPage> {
             ),
             CarouselSlider(
                 items: [
+                  EbookCorousalTile('lib/assets/text/brahmapuran.txt',
+                      'brahmapuran', 'lib/assets/images/Mahadev.jpg'),
                   EbookCorousalTile('lib/assets/text/padmapuran.txt',
                       'padmapuran', 'lib/assets/images/Mahadev.jpg'),
                   //second container

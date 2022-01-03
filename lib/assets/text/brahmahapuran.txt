@@ -1,35 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-class BrahmaPuran extends StatefulWidget {
-  const BrahmaPuran({Key? key}) : super(key: key);
-
-  @override
-  State<BrahmaPuran> createState() => _BrahmaPuranState();
-}
-
-class _BrahmaPuranState extends State<BrahmaPuran> {
-  @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays(
-        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    super.dispose();
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:
-      ListView(
-        children: [
-          Padding(padding: EdgeInsets.all(16.0),
-            child: Text('''1	Brahma Purana
+1	Brahma Purana
              This Purana contains 4 Chapters as follows.
 
              1.1	Lord Brahma
@@ -165,13 +134,3 @@ class _BrahmaPuranState extends State<BrahmaPuran> {
     Owl is the vehicle of goddess Lakshmi. An owl can't see in the day, Hence, Lakshmi visits the house of those devotees who only worship her, on her vehicle owl. And she visits the home of those devotees who worship Lord Vishnu first and then her, with Vishnu riding his vehicle Garuda.
 
     It also implies that at places where black-money is main, Lakshmi rides an owl. Such a wealth can't be put in the service of nation, people religion etc, or in any worthy task, instead it is squandered in abhorant deeds. Since owl is a bird that sees in the darkness alone, and darkness sumbolizes ignorance. Because of ignorance, money is generated in wrong ways and spent in wrong deeds. Thus owl is a symbol of black money and misdeeds
-    '''),
-          ),
-        ],
-      ),
-    );
-
-
-  }
-}
-

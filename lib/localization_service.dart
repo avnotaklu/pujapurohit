@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'lang/ar_AE.dart';
 import 'lang/en_US.dart';
 import 'lang/hi_IN.dart';
 
@@ -15,14 +14,13 @@ class LocalizationService extends Translations {
 
   // Supported languages
   // Needs to be same order with locales
-  static final langs = ['English', 'Hindi', 'Arabic'];
+  static final langs = ['English', 'Hindi'];
 
   // Supported locales
   // Needs to be same order with langs
   static final locales = [
     Locale('en', 'US'),
     Locale('hi', 'IN'),
-    Locale('ar', 'AE'),
   ];
 
   // Keys and their translations
@@ -31,7 +29,6 @@ class LocalizationService extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': enUS, // lang/en_us.dart
         'hi_IN': hiIN, // lang/hi_IN.dart
-        'ar_AE': arAE, // lang/ar_AE.dart
       };
 
   // Gets locale from language, and updates the locale

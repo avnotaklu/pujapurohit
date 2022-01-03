@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pujapurohit/Mahapurans/text_reader.dart';
 import 'package:pujapurohit/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'Mahapurans/Bhamha Puran.dart';
+import 'Mahapurans/padmapuran.dart';
 import 'localization_service.dart';
 import 'package:get/get.dart';
 
@@ -65,13 +68,21 @@ class _BooksPageState extends State<BooksPage> {
             ),
             CarouselSlider(
                 items: [
-                  InkWell(
-                    child: EBookCarousalTile(),
-                  ),
-                  EBookCarousalTile(),
-                  EBookCarousalTile(),
-                  EBookCarousalTile(),
-                  EBookCarousalTile(),
+                  EbookCorousalTile('lib/assets/text/padmapuran.txt',
+                      'padmapuran', 'lib/assets/images/Mahadev.jpg'),
+                  //second container
+                  EbookCorousalTile('lib/assets/text/vishnupuran.txt',
+                      "vishnupuran", 'lib/assets/images/Mahadev.jpg'),
+
+                  //third container
+                  EbookCorousalTile('lib/assets/text/sankhpuran.txt',
+                      'sankhpuran', 'lib/assets/images/Mahadev.jpg'),
+
+                  //fourth container
+
+                  EbookCorousalTile('lib/assets/text/shivpuran.txt',
+                      'shivpuran', 'lib/assets/images/Mahadev.jpg'),
+                  //fifth container
                 ],
                 options: CarouselOptions(
                   height: 200,
@@ -99,13 +110,51 @@ class _BooksPageState extends State<BooksPage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    EBookListTile(),
                     SizedBox(width: 15),
-                    EBookListTile(),
+                    //second uppuran
+                    EbookListTile('lib/assets/text/shivpuran.txt',
+                        'lib/assets/images/radhe-krishna.jpg'),
                     SizedBox(width: 20),
-                    EBookListTile(),
+                    EbookListTile('lib/assets/text/shivpuran.txt',
+                        'lib/assets/images/radhe-krishna.jpg'),
+                    SizedBox(width: 20),
+                    EbookListTile('lib/assets/text/shivpuran.txt',
+                        'lib/assets/images/radhe-krishna.jpg'),
                   ],
                 ),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              child: Text(
+                "Mahapuranas".tr,
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontFamily: 'Ubuntu',
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            GridView.count(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              crossAxisCount: 2,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+
+              // Generate 100 widgets that display their index in the List.
+              children: List.generate(
+                8,
+                (index) {
+                    return EbookListTile('lib/assets/text/shivpuran.txt',
+                        'lib/assets/images/radhe-krishna.jpg');
+                },
               ),
             ),
           ],
@@ -115,33 +164,60 @@ class _BooksPageState extends State<BooksPage> {
   }
 }
 
-class EBookCarousalTile extends StatelessWidget {
+class EbookCorousalTile extends StatelessWidget {
   @override
+  String textPath;
+  String bookTitle;
+  String imagePath;
+  EbookCorousalTile(this.textPath, this.bookTitle, this.imagePath);
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-        image: DecorationImage(
-          image: AssetImage('lib/assets/images/Mahadev.jpg'),
-          fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TextReader(textPath),
+          ),
+        );
+      },
+      child: Container(
+        child: Flexible(child: Text(bookTitle)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
   }
 }
 
-class EBookListTile extends StatelessWidget {
+class EbookListTile extends StatelessWidget {
+  @override
+  String textPath;
+  // String bookTitle;
+  String imagePath;
+  EbookListTile(this.textPath, this.imagePath);
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-      width: 160,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-        image: DecorationImage(
-          image: AssetImage('lib/assets/images/radhe-krishna.jpg'),
-          fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TextReader(textPath)),
+        );
+      },
+      child: Container(
+        width: 180,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

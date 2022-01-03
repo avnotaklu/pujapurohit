@@ -32,7 +32,7 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   web_socket_channel: ^2.1.0
   path_provider_platform_interface: ^2.0.1
-  path_provider: ^2.0.8
+  path_provider_android : ^2.0.11
   firebase_core: ^1.10.6
   firebase_database: ^8.0.1
   cloud_firestore: ^2.5.3
@@ -63,6 +63,7 @@ flutter:
   assets:
      - lib/assets/images/Mahadev.jpg
      - lib/assets/images/radhe-krishna.jpg
+     - lib/assets/text/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

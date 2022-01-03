@@ -59,6 +59,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
               ),
               ListTile(
+                onTap: () {Navigator.of(context).pushReplacementNamed('/HomePage');},
                 leading: Icon(
                   CupertinoIcons.home,
                   color: Colors.white,

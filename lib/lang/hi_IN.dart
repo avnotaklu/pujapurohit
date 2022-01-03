@@ -13,4 +13,6 @@ const Map<String, String> hiIN = {
 "Mantra" : "मंत्र",
 "Shlok" : "श्लोक",
 "Puja Purohit" : "पूजा पुरोहित",
+  "Mahapuranas":"महापुराण",
+  "Upapuranas":"उपपुराण",
 };

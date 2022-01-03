@@ -5,7 +5,7 @@ const Map<String, String> hiIN = {
   'categories' : 'श्रेणियाँ',
   'writer' : 'लेखक',
   'language' : 'भाषा',
-  'e-books' : 'ई बुक्स',
+  'E-books' : 'ई बुक्स',
 "Magazine" : "पत्रिका",
 "Discourse" : "प्रवचन",
 "Audio" : "ऑडियो",

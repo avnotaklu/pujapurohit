@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget _uiWidget(int offset) {
     List<String> gridMembersText = [
-      "e-books",
-      "magazine",
-      "discourse",
-      "arti",
-      "mantra",
-      "shlok"
+      "E-books",
+      "Magazine",
+      "Discourse",
+      "Arti",
+      "Mantra",
+      "Shlok"
     ];
 
     List<String> gridMembersPath = [

@@ -15,4 +15,15 @@ const Map<String, String> hiIN = {
 "Puja Purohit" : "पूजा पुरोहित",
   "Mahapuranas":"महापुराण",
   "Upapuranas":"उपपुराण",
+  "HomePage" : "होम पेज",
+  "Profile" : "प्रोफ़ाइल",
+   "Shiv Aarti":"शिव आरती",
+  "Aartis": "आरती",
+  "PopularBooks": "लोकप्रिय पुस्तकें",
+  "Raamayan" : "रामायण",
+  "Mahabharat":"महाभारत",
+  "Gita":"गीता",
+  "Katha":"कथा",
+  "Famous Mahapurans": "प्रसिद्ध महापुराण",
+
 };

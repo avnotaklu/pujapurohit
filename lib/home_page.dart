@@ -52,10 +52,6 @@ class _HomePageState extends State<HomePage> {
     return Center(
       child: Column(
         children: [
-          // Text(
-          // "hello_title".tr,
-          // style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          // ),
           Divider(
             height: 2,
             thickness: 2,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:provider/provider.dart';
 
 import 'blocs/auth_bloc.dart';
@@ -13,7 +14,7 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-  final imgurl = "lib/assest/image/suraj.jpeg";
+
 
   String? lng;
 
@@ -65,7 +66,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   color: Colors.white,
                 ),
                 title: Text(
-                  "Home",
+                  "HomePage".tr,
                   textScaleFactor: 1.2,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
@@ -77,7 +78,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   color: Colors.white,
                 ),
                 title: Text(
-                  "Profile",
+                  "Profile".tr,
                   textScaleFactor: 1.2,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),

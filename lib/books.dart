@@ -5,6 +5,7 @@ import 'package:epub_view/epub_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/routes/default_transitions.dart';
+import 'package:pujapurohit/utils/epub_reader.dart';
 import 'package:pujapurohit/utils/text_reader.dart';
 import 'package:pujapurohit/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -74,21 +75,19 @@ class _BooksPageState extends State<BooksPage> {
           ),
           CarouselSlider(
               items: [
-                EbookCorousalTile('lib/assets/text/brahmapuran.txt',
+                EbookCorousalTile(
+                  'lib/assets/epub/Brahma-Purana.epub',
                     'Raamayan'.tr, 'lib/assets/images/Ramayaan1.jpg'),
-                EbookCorousalTile('lib/assets/text/padmapuran.txt',
+                EbookCorousalTile(
+                  'lib/assets/epub/Padma-Purana.epub',
                     'Mahabharat'.tr, 'lib/assets/images/Mahabharat1.jpg'),
                 //second container
-                EbookCorousalTile('lib/assets/text/visnupuran.txt', "Katha".tr,
+                EbookCorousalTile(
+                  'lib/assets/epub/Vishnu-Purana.epub', "Katha".tr,
                     'lib/assets/images/katha1.png'),
 
-                //third container
-                EbookCorousalTile('lib/assets/text/sankhpuran.txt',
-                    'Mahapuranas'.tr, 'lib/assets/images/purana.jpg'),
-
-                //fourth container
-
-                EbookCorousalTile('lib/assets/text/shivpuran.txt', 'Gita'.tr,
+                EbookCorousalTile(
+                  'lib/assets/epub/Shiva-Maha-Purana.epub', 'Gita'.tr,
                     'lib/assets/images/Gita1.jpg'),
                 //fifth container
               ],
@@ -126,19 +125,19 @@ class _BooksPageState extends State<BooksPage> {
                   SizedBox(width: 15),
                   //second uppuran
                   EbookListTile(
-                    'lib/assets/text/shivpuran.txt',
+                    'lib/assets/epub/Shiva-Maha-Purana.epub',
                     'lib/assets/images/mahadev.jpg',
                     "Shiv Puran",
                   ),
                   SizedBox(width: 15),
                   EbookListTile(
-                    'lib/assets/text/shivpuran.txt',
+                    'lib/assets/epub/Shiva-Maha-Purana.epub',
                     'lib/assets/images/bhrama.jpg',
                     "Bhrama Puran",
                   ),
                   SizedBox(width: 15),
-                  EbookListTileEPub(
-                    'lib/assets/text/shivpuran.txt',
+                  EbookListTile(
+                    'lib/assets/epub/Shiva-Maha-Purana.epub',
                     'lib/assets/images/visnu_2.jpg',
                     "Visnu Puran",
                   ),
@@ -165,12 +164,12 @@ class _BooksPageState extends State<BooksPage> {
           SizedBox(
             height: 25,
           ),
-          card('lib/assets/text/shivpuran.txt', 'lib/assets/images/visnu_2.jpg',
-              'Vishnu Puran'),
+          card('lib/assets/epub/Shiva-Maha-Purana.epub',
+              'lib/assets/images/visnu_2.jpg', 'Vishnu Puran'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/text/shivpuran.txt',
+          card('lib/assets/epub/Shiva-Maha-Purana.epub',
               'lib/assets/images/padmapuran.jpeg', 'Padma Puran'),
           SizedBox(
             height: 35,
@@ -308,7 +307,7 @@ class _cardState extends State<card> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TextReader(widget.textPath),
+                        builder: (context) => EpubReaderPage(widget.textPath),
                       ),
                     );
                   },
@@ -337,7 +336,7 @@ class EbookCorousalTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => TextReader(textPath),
+            builder: (context) => EpubReaderPage(textPath),
           ),
         );
       },
@@ -376,56 +375,9 @@ class EbookListTile extends StatelessWidget {
   // String bookTitle;
   String imagePath;
   String title;
-  EbookListTile(this.textPath, this.imagePath, this.title);
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TextReader(textPath)),
-        );
-      },
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            width: 180,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Container(
-              child: Text(title,
-                  style: TextStyle(
-                      color: Colors.blueGrey[800],
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30))),
-        ],
-      ),
-    );
-  }
-}
-
-Future<Uint8List> _loadFromAssets(String assetName) async {
-  final bytes = await rootBundle.load(assetName);
-  return bytes.buffer.asUint8List();
-}
-
-class EbookListTileEPub extends StatelessWidget {
-  @override
-  String textPath;
-  // String bookTitle;
-  String imagePath;
-  String title;
   EpubController? _epubController;
 
-  EbookListTileEPub(this.textPath, this.imagePath, this.title);
+  EbookListTile(this.textPath, this.imagePath, this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -434,7 +386,8 @@ class EbookListTileEPub extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => EpubReaderPage("lib/assets/text/book.epub")));
+                builder: (context) =>
+                    EpubReaderPage("lib/assets/text/book.epub")));
       },
       child: Stack(
         alignment: Alignment.bottomCenter,
@@ -459,53 +412,5 @@ class EbookListTileEPub extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class EpubReaderPage extends StatefulWidget {
-  @override
-  State<EpubReaderPage> createState() => _EpubReaderPageState();
-  EpubController? _epubController;
-  String path;
-  EpubReaderPage(this.path);
-}
-
-class _EpubReaderPageState extends State<EpubReaderPage> {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        // Show actual chapter name
-        title: EpubActualChapter(
-          controller: widget._epubController!,
-          builder: (chapterValue) => Text(
-            'Chapter ${chapterValue?.chapter?.Title ?? ''}',
-            textAlign: TextAlign.start,
-          ),
-        ),
-      ),
-      // Show table of contents
-      drawer: Drawer(
-        child: EpubReaderTableOfContents(
-          controller: widget._epubController!,
-        ),
-      ),
-      // Show epub document
-      body: EpubView(
-        controller: widget._epubController!,
-      ),
-    );
-  }
-
-  @override
-  void initState() {
-    widget._epubController = EpubController(
-      // Load document
-      document: EpubReader.readBook(_loadFromAssets(widget.path)),
-      // Set start point
-      // epubCfi: 'epubcfi(/6/6[chapter-2]!/4/2/1612)',
-    );
-    super.initState();
   }
 }

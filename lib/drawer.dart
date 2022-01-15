@@ -90,7 +90,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   color: Colors.white,
                 ),
                 title: Text(
-                  "Mail us",
+                  "Mail us".tr,
                   textScaleFactor: 1.2,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
@@ -104,7 +104,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   title: Row(
                     children: [
                       Text(
-                        "Language",
+                        "Language".tr,
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -141,7 +141,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   color: Colors.white,
                 ),
                 title: Text(
-                  "Logout",
+                  "Logout".tr,
                   textScaleFactor: 1.2,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),

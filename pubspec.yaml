@@ -64,7 +64,7 @@ flutter:
   assets:
 
      - lib/assets/images/
-     - lib/assets/text/
+#     - lib/assets/text/
      - lib/assets/epub/
   #   - images/a_dot_ham.jpeg
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/routes/default_transitions.dart';
+import 'package:pujapurohit/utils/epub_reader.dart';
 import 'package:pujapurohit/utils/text_reader.dart';
 import 'package:pujapurohit/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -334,7 +335,7 @@ class _cardState extends State<card> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TextReader(widget.textPath),
+                          builder: (context) => EpubReaderPage(widget.textPath),
                         ),
                       );
                     },
@@ -355,7 +356,7 @@ class _cardState extends State<card> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TextReader(widget.textPath),
+                          builder: (context) => EpubReaderPage(widget.textPath),
                         ),
                       );
                     },
@@ -474,7 +475,7 @@ class EbookListTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => TextReader(textPath)),
+          MaterialPageRoute(builder: (context) => EpubReaderPage(textPath)),
         );
       },
       child: Stack(

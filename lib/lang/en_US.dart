@@ -25,4 +25,7 @@ const Map<String, String> enUS = {
   "Gita":"Gita",
   "Katha":"Katha",
    "Famous Mahapurans": "Famous Mahapurans",
+  "Mail us" :"Mail us",
+"Language":"Language",
+"Logout":"Logout",
 };

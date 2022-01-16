@@ -25,5 +25,8 @@ const Map<String, String> hiIN = {
   "Gita":"गीता",
   "Katha":"कथा",
   "Famous Mahapurans": "प्रसिद्ध महापुराण",
+  "Mail us": "मेल करें",
+  "Language":"भाषा",
+  "Logout":"लॉग आउट",
 
 };

@@ -1,4 +1,8 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
+import 'package:pujapurohit/books.dart';
+import 'package:pujapurohit/books.dart';
 import 'package:pujapurohit/drawer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -45,9 +49,14 @@ class _HomePageState extends State<HomePage> {
       "Shlok"
     ];
 
-    List<String> gridMembersPath = [
-      "/BooksPage",
-    ];
+    // List<String> gridMembersPath = [
+    //   "BooksPage()",
+    // ];
+
+   List <Widget> Pages = [
+     BooksPage()
+   ];
+
 
     return Center(
       child: Column(
@@ -145,8 +154,11 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) => Container(
                 child: TextButton(
                   onPressed: () => {
-                    Navigator.of(context)
-                        .pushReplacementNamed(gridMembersPath[index])
+                    // Navigator.of(context)
+                    //     .pushReplacementNamed(gridMembersPath[index])
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return (Pages[index]);
+                    }))
                   },
                   style: ButtonStyle(
                       overlayColor:

@@ -9,7 +9,6 @@ import 'package:pujapurohit/books.dart';
 import 'package:pujapurohit/services/signin.dart';
 import 'package:pujapurohit/splash_screen.dart';
 
-
 import 'home_page.dart';
 import 'localization_service.dart';
 import 'books.dart';
@@ -25,26 +24,33 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return Provider(
         create: (context) => AuthBloc(),
         child: GetMaterialApp(
-      title: 'Flutter Multilanguage App',
-      debugShowCheckedModeBanner: false,
-      translations: LocalizationService(), // your translations
-      locale: LocalizationService().getCurrentLocale(), // translations will be displayed in that locale
-      fallbackLocale: Locale(
-        'en',
-        'US',
-      ), // specify the fallback locale in case an invalid locale is selected.
-      home: SignIn(),
-      routes: <String, WidgetBuilder> {
-        '/SignIn' : (BuildContext context) => SignIn(),
-        '/HomePage' : (BuildContext context) => HomePage(),
-        '/BooksPage' : (BuildContext context) => BooksPage(),
-        '/SplashScreen' : (BuildContext context) => SplashScreen(),
-      },
-    )
-    );
-    }
-    }
+          theme: ThemeData(
+            primarySwatch: Colors.orange,
+            brightness: Brightness.light,
+          ),
+
+          darkTheme: ThemeData(
+            primarySwatch: Colors.orange,
+            brightness: Brightness.dark,
+          ),
+          title: 'Flutter Multilanguage App',
+          debugShowCheckedModeBanner: false,
+          translations: LocalizationService(), // your translations
+          locale: LocalizationService().getCurrentLocale(), // translations will be displayed in that locale
+          fallbackLocale: Locale(
+            'en',
+            'US',
+          ), // specify the fallback locale in case an invalid locale is selected.
+          home: SignIn(),
+          routes: <String, WidgetBuilder>{
+            '/SignIn': (BuildContext context) => SignIn(),
+            '/HomePage': (BuildContext context) => HomePage(),
+            '/BooksPage': (BuildContext context) => BooksPage(),
+            '/SplashScreen': (BuildContext context) => SplashScreen(),
+          },
+        ));
+  }
+}

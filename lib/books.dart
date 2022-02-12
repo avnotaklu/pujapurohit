@@ -10,15 +10,12 @@ import 'localization_service.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
 class BooksPage extends StatefulWidget {
   @override
   _BooksPageState createState() => _BooksPageState();
 }
 
 class _BooksPageState extends State<BooksPage> {
-
-
   String? lng;
   @override
   void initState() {
@@ -29,8 +26,7 @@ class _BooksPageState extends State<BooksPage> {
 
   @override
   void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays(
-        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.dispose();
   }
 
@@ -43,7 +39,6 @@ class _BooksPageState extends State<BooksPage> {
   }
 
   Widget _uiWidget() {
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -76,36 +71,32 @@ class _BooksPageState extends State<BooksPage> {
           ),
           CarouselSlider(
               items: [
-                EbookCorousalTile('lib/assets/text/brahmapuran.txt',
-                    'Raamayan'.tr, 'lib/assets/images/ram1.jpg'),
-                EbookCorousalTile('lib/assets/text/padmapuran.txt',
-                    'Mahabharat'.tr, 'lib/assets/images/maha.jfif'),
+                EbookCorousalTile('lib/assets/text/brahmapuran.txt', 'Raamayan'.tr, 'lib/assets/images/ram1.jpg'),
+                EbookCorousalTile('lib/assets/text/padmapuran.txt', 'Mahabharat'.tr, 'lib/assets/images/maha.jfif'),
                 //second container
-                EbookCorousalTile('lib/assets/text/visnupuran.txt', "Katha".tr,
-                    'lib/assets/images/katha1.png'),
+                EbookCorousalTile('lib/assets/text/visnupuran.txt', "Katha".tr, 'lib/assets/images/katha1.png'),
 
                 //third container
-                EbookCorousalTile('lib/assets/text/sankhpuran.txt',
-                    'Mahapuranas'.tr, 'lib/assets/images/purana.jpg'),
+                EbookCorousalTile('lib/assets/text/sankhpuran.txt', 'Mahapuranas'.tr, 'lib/assets/images/purana.jpg'),
 
                 //fourth container
 
-                EbookCorousalTile('lib/assets/text/shivpuran.txt', 'Gita'.tr,
-                    'lib/assets/images/download.jfif'),
+                EbookCorousalTile('lib/assets/text/shivpuran.txt', 'Gita'.tr, 'lib/assets/images/download.jfif'),
                 //fifth container
               ],
               options: CarouselOptions(
                 height: 250,
                 autoPlay: true,
-                aspectRatio: 16/4,
+                aspectRatio: 16 / 4,
                 autoPlayCurve: Curves.easeInOut,
                 enlargeCenterPage: true,
                 reverse: true,
                 enableInfiniteScroll: true,
                 // pageSnapping: true,
               )),
-
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: EdgeInsets.only(left: 0, top: 20, bottom: 20),
             child: Center(
@@ -128,7 +119,9 @@ class _BooksPageState extends State<BooksPage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  SizedBox(width: 15,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   //second uppuran
                   EbookListTile(
                     'lib/assets/epub/Shiva-Maha-Purana.epub',
@@ -175,63 +168,51 @@ class _BooksPageState extends State<BooksPage> {
           SizedBox(
             height: 40,
           ),
-          card('lib/assets/epub/Vishnu-Purana.epub', 'lib/assets/images/41846633-lord-vishnu-a-hindu-god.webp',
-              'Vishnu Puran'),
+          card('lib/assets/epub/Vishnu-Purana.epub', 'lib/assets/images/41846633-lord-vishnu-a-hindu-god.webp', 'Vishnu Puran'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Padma-Purana.epub',
-              'lib/assets/images/padmapuran.jpeg', 'Padma Puran'),
+          card('lib/assets/epub/Padma-Purana.epub', 'lib/assets/images/padmapuran.jpeg', 'Padma Puran'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Varaha-Purana.epub', 'lib/assets/images/Varaha.jpg',
-              'Varaha Puran'),
+          card('lib/assets/epub/Varaha-Purana.epub', 'lib/assets/images/Varaha.jpg', 'Varaha Puran'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Brahmananda-Purana.epub',
-              'lib/assets/images/lakmi.jfif', 'Bhagavata Puran'),
+          card('lib/assets/epub/Brahmananda-Purana.epub', 'lib/assets/images/lakmi.jfif', 'Bhagavata Puran'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Matsya-Purana.epub', 'lib/assets/images/matsiya.jpg',
-              'Matsya'),
+          card('lib/assets/epub/Matsya-Purana.epub', 'lib/assets/images/matsiya.jpg', 'Matsya'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Kurma-Purana.epub', 'lib/assets/images/kurma.jfif',
-              'Kurma'),
+          card('lib/assets/epub/Kurma-Purana.epub', 'lib/assets/images/kurma.jfif', 'Kurma'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Linga-Purana.epub', 'lib/assets/images/linga.jfif',
-              'Linga'),
+          card('lib/assets/epub/Linga-Purana.epub', 'lib/assets/images/linga.jfif', 'Linga'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Shiva-Maha-Purana.epub', 'lib/assets/images/shiv.jpg',
-              'Shiva'),
+          card('lib/assets/epub/Shiva-Maha-Purana.epub', 'lib/assets/images/shiv.jpg', 'Shiva'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Skanda-Purana.epub', 'lib/assets/images/skanda.jfif',
-              'Skanda'),
+          card('lib/assets/epub/Skanda-Purana.epub', 'lib/assets/images/skanda.jfif', 'Skanda'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Agni-Purana.epub', 'lib/assets/images/agni.jfif',
-              'Agni'),
+          card('lib/assets/epub/Agni-Purana.epub', 'lib/assets/images/agni.jfif', 'Agni'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/epub/Brahmananda-Purana.epub', 'lib/assets/images/bhrama.jpg',
-              'Brahmanda'),
+          card('lib/assets/epub/Brahmananda-Purana.epub', 'lib/assets/images/bhrama.jpg', 'Brahmanda'),
           SizedBox(
             height: 35,
           ),
-          card('lib/assets/text/shivpuran.txt',
-              'lib/assets/images/brahmavaivarta.jfif', 'Brahmavaivarta'),
+          card('lib/assets/text/shivpuran.txt', 'lib/assets/images/brahmavaivarta.jfif', 'Brahmavaivarta'),
           SizedBox(
             height: 35,
           ),
@@ -332,11 +313,8 @@ class _cardState extends State<card> {
                 child: ButtonBar(children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EpubReaderPage(widget.textPath),
-                        ),
+                      Get.to(
+                        EpubReaderPage(widget.textPath),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -353,11 +331,8 @@ class _cardState extends State<card> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EpubReaderPage(widget.textPath),
-                        ),
+                      Get.to(
+                        EpubReaderPage(widget.textPath),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -431,12 +406,7 @@ class EbookCorousalTile extends StatelessWidget {
     // TODO: implement build
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => TextReader(textPath),
-          ),
-        );
+        Get.to(TextReader(textPath));
       },
       child: Stack(
         alignment: Alignment.bottomCenter,
@@ -452,11 +422,7 @@ class EbookCorousalTile extends StatelessWidget {
           ),
           Container(
               child: Text(bookTitle,
-                  style: TextStyle(
-                      color: Colors.blueGrey[800],
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40))),
+                  style: TextStyle(color: Colors.blueGrey[800], fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 40))),
         ],
       ),
     );
@@ -473,10 +439,7 @@ class EbookListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => EpubReaderPage(textPath)),
-        );
+        Get.to(EpubReaderPage(textPath));
       },
       child: Stack(
         alignment: Alignment.bottomCenter,
@@ -503,43 +466,30 @@ class EbookListTile extends StatelessWidget {
           Column(
             children: [
               Container(
-
                   height: 80.0,
                   width: 80.0,
-                  margin: EdgeInsets.only(
-                      left: 5.0,
-                      right: 5.0
-                  ),
+                  margin: EdgeInsets.only(left: 5.0, right: 5.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100.0),
                       border: Border.all(
                         width: 2.0,
-                        style:BorderStyle.solid ,
+                        style: BorderStyle.solid,
                         color: Colors.black38,
                       ),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(imagePath)
-                      )
-                  )
+                      image: DecorationImage(fit: BoxFit.cover, image: AssetImage(imagePath)))),
+              SizedBox(
+                height: 18,
               ),
-              SizedBox(height: 18,),
-
               Container(
-                child: Text(title,style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold
-                ),),
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                ),
               )
             ],
-          ) ,
-
-
+          ),
         ],
       ),
     );
   }
 }
-
-
-

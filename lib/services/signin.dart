@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:get/get.dart';
 import 'package:pujapurohit/blocs/auth_bloc.dart';
 import 'package:provider/provider.dart';
-
 
 class SignIn extends StatefulWidget {
   @override
@@ -17,9 +17,7 @@ class _SignInState extends State<SignIn> {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
     authBloc.currentUser.listen((user) {
       if (user != null) {
-        Navigator.of(context).pushReplacementNamed(
-        '/HomePage',  
-        );
+        Get.toNamed("/HomePage");
       }
     });
   }
@@ -33,7 +31,9 @@ class _SignInState extends State<SignIn> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           SignInButton(
             Buttons.Google,
-            onPressed: () {authBloc.loginGoogle();},
+            onPressed: () {
+              authBloc.loginGoogle();
+            },
           ),
         ]),
       ),

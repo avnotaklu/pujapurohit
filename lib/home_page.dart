@@ -40,23 +40,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _uiWidget(int offset) {
-    List<String> gridMembersText = [
-      "E-books",
-      "Magazine",
-      "Discourse",
-      "Arti",
-      "Mantra",
-      "Shlok"
-    ];
+    List<String> gridMembersText = ["E-books", "Magazine", "Discourse", "Arti", "Mantra", "Shlok"];
 
     // List<String> gridMembersPath = [
     //   "BooksPage()",
     // ];
 
-   List <Widget> Pages = [
-     BooksPage()
-   ];
-
+    List<Widget> Pages = [BooksPage()];
 
     return Center(
       child: Column(
@@ -77,53 +67,51 @@ class _HomePageState extends State<HomePage> {
                     child: IconTheme(
                       data: IconThemeData(color: Colors.white),
                       child: // SizedBox.shrink() ,
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.subject),
-                                Text(
-                                  "subject".tr,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.subject),
+                            Text(
+                              "subject".tr,
+                              style: TextStyle(fontSize: 10),
                             ),
-                            IconSeperator(),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.category),
-                                Text(
-                                  "categories".tr,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                          ],
+                        ),
+                        IconSeperator(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.category),
+                            Text(
+                              "categories".tr,
+                              style: TextStyle(fontSize: 10),
                             ),
-                            IconSeperator(),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.umbrella),
-                                Text(
-                                  "writer".tr,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                          ],
+                        ),
+                        IconSeperator(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.umbrella),
+                            Text(
+                              "writer".tr,
+                              style: TextStyle(fontSize: 10),
                             ),
-                            IconSeperator(),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.language),
-                                Text(
-                                  "language".tr,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                          ],
+                        ),
+                        IconSeperator(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.language),
+                            Text(
+                              "language".tr,
+                              style: TextStyle(fontSize: 10),
                             ),
-                          ]),
+                          ],
+                        ),
+                      ]),
                     ),
                   ),
                 ),
@@ -146,32 +134,23 @@ class _HomePageState extends State<HomePage> {
             child: GridView.builder(
               shrinkWrap: true,
               itemCount: 6,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 0),
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 2, crossAxisSpacing: 0, mainAxisSpacing: 0),
               itemBuilder: (context, index) => Container(
                 child: TextButton(
-                  onPressed: () => {
+                  onPressed: () {
                     // Navigator.of(context)
                     //     .pushReplacementNamed(gridMembersPath[index])
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return (Pages[index]);
-                    }))
+                    Get.to(Pages[index]);
                   },
-                  style: ButtonStyle(
-                      overlayColor:
-                          MaterialStateProperty.all(Colors.orange.shade100)),
+                  style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.orange.shade100)),
                   child: Column(
                     children: [
                       Text(
                         gridMembersText[index].tr,
                         style: TextStyle(color: Colors.black),
                       ),
-                      IconTheme(
-                          data: IconThemeData(color: Colors.orange),
-                          child: Icon(Icons.circle)),
+                      IconTheme(data: IconThemeData(color: Colors.orange), child: Icon(Icons.circle)),
                     ],
                   ),
                 ),
@@ -186,12 +165,7 @@ class _HomePageState extends State<HomePage> {
               data: IconThemeData(color: Colors.orange),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Icon(Icons.star),
-                    Icon(Icons.share),
-                    Icon(Icons.chat),
-                    Icon(Icons.info)
-                  ]),
+                  children: [Icon(Icons.star), Icon(Icons.share), Icon(Icons.chat), Icon(Icons.info)]),
             ),
           ),
         ],
@@ -298,7 +272,6 @@ class _PageIndicatorState extends State<PageIndicator> {
   Widget build(BuildContext context) {
     print("constructed");
 
-    return AnimatedSmoothIndicator(
-        effect: WormEffect(), activeIndex: widget.offset.value, count: 5);
+    return AnimatedSmoothIndicator(effect: WormEffect(), activeIndex: widget.offset.value, count: 5);
   }
 }

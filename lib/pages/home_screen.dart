@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
+import 'package:pujapurohit/pages/drawer_screen.dart';
 import 'package:pujapurohit/responsive.dart';
 
 import 'books_details.dart';
@@ -20,109 +21,116 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      decoration: isDrawerOpen
-          ? BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-            )
-          : BoxDecoration(color: Colors.white),
-      transform: Matrix4.translationValues(xOffset, yOffset, 0)..scale(scaleFactor),
-      duration: Duration(milliseconds: 250),
-      child: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 5.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    isDrawerOpen
-                        ? IconButton(
-                            onPressed: () {
-                              setState(() {
-                                xOffset = 0;
-                                yOffset = 0;
-                                scaleFactor = 1;
-                                isDrawerOpen = false;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_back_ios),
-                          )
-                        : IconButton(
-                            onPressed: () {
-                              setState(() {
-                                xOffset = 230;
-                                yOffset = 150;
-                                scaleFactor = 0.6;
-                                isDrawerOpen = true;
-                              });
-                            },
-                            icon: Icon(Icons.menu),
-                          ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.book_sharp,
-                              color: primaryColor,
-                              size: 20,
-                            ),
-                          ),
-                          Text(
-                            'Puja, ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text('Purohit'),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 10.0),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('lib/images/Lucifer.jpeg'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(25), topLeft: Radius.circular(25)),
-                ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          DrawerScreen(),
+          AnimatedContainer(
+            decoration: isDrawerOpen
+                ? BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                  )
+                : BoxDecoration(color: Colors.white),
+            transform: Matrix4.translationValues(xOffset, yOffset, 0)..scale(scaleFactor),
+            duration: Duration(milliseconds: 250),
+            child: SingleChildScrollView(
+              child: SafeArea(
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 30.0,
+                      height: 5.0,
                     ),
-                    SearchBar(),
-                    ArtiSection(),
-                    SizedBox(
-                      height: 30.0,
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          isDrawerOpen
+                              ? IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      xOffset = 0;
+                                      yOffset = 0;
+                                      scaleFactor = 1;
+                                      isDrawerOpen = false;
+                                    });
+                                  },
+                                  icon: Icon(Icons.arrow_back_ios),
+                                )
+                              : IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      xOffset = 230;
+                                      yOffset = 150;
+                                      scaleFactor = 0.6;
+                                      isDrawerOpen = true;
+                                    });
+                                  },
+                                  icon: Icon(Icons.menu),
+                                ),
+                          Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.book_sharp,
+                                    color: primaryColor,
+                                    size: 20,
+                                  ),
+                                ),
+                                Text(
+                                  'Puja, ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text('Purohit'),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(right: 10.0),
+                            child: CircleAvatar(
+                              backgroundImage: AssetImage('lib/assets/images/place_holder/Lucifer.jpeg'),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    BooksSection(),
                     SizedBox(
-                      height: 20.0,
+                      height: 10.0,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(25), topLeft: Radius.circular(25)),
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 30.0,
+                          ),
+                          SearchBar(),
+                          ArtiSection(),
+                          SizedBox(
+                            height: 30.0,
+                          ),
+                          BooksSection(),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

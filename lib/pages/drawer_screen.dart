@@ -30,7 +30,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('lib/images/Lucifer.jpeg'),
+                backgroundImage: AssetImage('lib/assets/images/place_holder/Lucifer.jpeg'),
               ),
               title: Text(
                 'SarojKumarPadhi'.tr,

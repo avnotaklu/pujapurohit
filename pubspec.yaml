@@ -68,6 +68,7 @@ flutter:
   assets:
      - .release.env
      - lib/assets/images/
+     - lib/assets/images/place_holder/
 #     - lib/assets/text/
      - lib/assets/epub/
   #   - images/a_dot_ham.jpeg

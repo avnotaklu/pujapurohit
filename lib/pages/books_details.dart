@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
-
-
+import 'package:pujapurohit/utils/epub_reader.dart';
 
 // ignore: must_be_immutable
 class BookDetails extends StatefulWidget {
@@ -55,7 +54,7 @@ class _BookDetailsState extends State<BookDetails> {
                               Expanded(
                                 child: ListTile(
                                   leading: CircleAvatar(
-                                    backgroundImage: AssetImage('lib/images/Lucifer.jpeg'),
+                                    backgroundImage: AssetImage('lib/assets/images/place_holder/Lucifer.jpeg'),
                                   ),
                                   title: Text(
                                     'SarojKumarPadhi'.tr,
@@ -243,12 +242,17 @@ class _BookDetailsState extends State<BookDetails> {
                         height: 50,
                         width: 50,
                         child: Center(
-                          child: Text(
-                            'Read'.tr,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Get.put(EpubReaderPage("${widget.info.bookPath}"));
+                            },
+                            child: Text(
+                              'Read'.tr,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

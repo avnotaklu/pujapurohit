@@ -244,7 +244,7 @@ class _BookDetailsState extends State<BookDetails> {
                         child: Center(
                           child: ElevatedButton(
                             onPressed: () {
-                              Get.put(EpubReaderPage("${widget.info.bookPath}"));
+                              Get.to(EpubReaderPage("${widget.info.bookPath}"));
                             },
                             child: Text(
                               'Read'.tr,

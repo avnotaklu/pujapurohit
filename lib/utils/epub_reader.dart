@@ -35,44 +35,47 @@ class _EpubReaderPageState extends State<EpubReaderPage> {
       allowSharing: true,
       enableTts: true,
     );
-    return FutureBuilder(
-        future: EpubViewer.openAsset(widget.path),
-        builder: (context, snapshot) {
-          return Scaffold(
-            appBar: AppBar(
-                // Show actual chapter name
-                title: StreamBuilder(
-                    stream: EpubViewer.locatorStream,
-                    builder: (context, snapshot) {
-                      if (snapshot.data != null) {
-                        return Text("${EpubLocator.fromJson(jsonDecode(snapshot.data.toString()))}");
-                      }
-                      return Center(
-                          child: FractionallySizedBox(
-                        heightFactor: 0.7,
-                        child: AspectRatio(
-                          aspectRatio: 1.0,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 6,
+    return Scaffold(
+      body: FutureBuilder(
+          future: EpubViewer.openAsset(widget.path),
+          builder: (context, snapshot) {
+            return Scaffold(
+              appBar: AppBar(
+                  // Show actual chapter name
+                  title: StreamBuilder(
+                      stream: EpubViewer.locatorStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.data != null) {
+                          print("${EpubLocator.fromJson(jsonDecode(snapshot.data.toString()))}");
+                          return Text("${EpubLocator.fromJson(jsonDecode(snapshot.data.toString()))}");
+                        }
+                        return Center(
+                            child: FractionallySizedBox(
+                          heightFactor: 0.7,
+                          child: AspectRatio(
+                            aspectRatio: 1.0,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 6,
+                            ),
                           ),
-                        ),
-                      ));
-                    })),
-            // Show table of contents
+                        ));
+                      })),
+              // Show table of contents
 
-            // Show epub document
-            body: Center(
-              child: FractionallySizedBox(
-                widthFactor: 0.4,
-                child: AspectRatio(
-                  aspectRatio: 1.0,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 6,
+              // Show epub document
+              body: Center(
+                child: FractionallySizedBox(
+                  widthFactor: 0.4,
+                  child: AspectRatio(
+                    aspectRatio: 1.0,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 6,
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-        });
+            );
+          }),
+    );
   }
 }

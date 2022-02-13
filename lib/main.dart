@@ -7,6 +7,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:pujapurohit/blocs/auth_bloc.dart';
 import 'package:pujapurohit/books.dart';
+import 'package:pujapurohit/pages/books_details.dart';
+import 'package:pujapurohit/pages/home_screen.dart';
 import 'package:pujapurohit/services/signin.dart';
 import 'package:pujapurohit/splash_screen.dart';
 
@@ -50,8 +52,7 @@ class MyApp extends StatelessWidget {
       ), // specify the fallback locale in case an invalid locale is selected.
       initialRoute: "/HomePage",
       getPages: [
-        GetPage(name: '/HomePage', page: () => HomePage()),
-        GetPage(name: '/BooksPage', page: () => BooksPage()),
+        GetPage(name: '/HomePage', page: () => HomeScreen()),
         GetPage(name: '/SplashScreen', page: () => SplashScreen()),
       ],
     );

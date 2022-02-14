@@ -6,20 +6,14 @@ import 'package:pujapurohit/models/samples.dart';
 import 'package:pujapurohit/utils/epub_reader.dart';
 
 // ignore: must_be_immutable
-class BookDetails extends StatefulWidget {
+class BookDetails extends StatelessWidget {
   BookDetails({required this.info});
 
-  BookInfo info;
+  BookController info;
+  RxBool isFavorite = false.obs;
 
   @override
-  _BookDetailsState createState() => _BookDetailsState();
-}
-
-class _BookDetailsState extends State<BookDetails> {
-  bool isFavorite = false;
-
-  @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
@@ -28,12 +22,12 @@ class _BookDetailsState extends State<BookDetails> {
               children: [
                 Expanded(
                   child: Container(
-                    color: (widget.info.id % 2 == 0) ? Colors.blueGrey[200] : Colors.orangeAccent[200],
+                    color: (info.id % 2 == 0) ? Colors.blueGrey[200] : Colors.orangeAccent[200],
                     child: Align(
                       alignment: Alignment.center,
                       child: Hero(
-                        tag: 'pet${widget.info.id}',
-                        child: Image.asset(widget.info.imagePath),
+                        tag: 'pet${info.id}',
+                        child: Image.asset(info.imagePath),
                       ),
                     ),
                   ),
@@ -130,7 +124,7 @@ class _BookDetailsState extends State<BookDetails> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.info.name,
+                          info.name,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 21.0,
@@ -148,7 +142,7 @@ class _BookDetailsState extends State<BookDetails> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.info.writer,
+                          info.writer,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[500],
@@ -156,7 +150,7 @@ class _BookDetailsState extends State<BookDetails> {
                           ),
                         ),
                         Text(
-                          widget.info.likedBy + ' Active Readers'.tr,
+                          info.likedBy + ' Active Readers'.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[500],
@@ -179,7 +173,7 @@ class _BookDetailsState extends State<BookDetails> {
                           width: 3,
                         ),
                         Text(
-                          widget.info.likedBy + ' Active Readers'.tr,
+                          info.likedBy + ' Active Readers'.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[400],
@@ -207,26 +201,26 @@ class _BookDetailsState extends State<BookDetails> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        setState(() {
-                          if (isFavorite) {
-                            isFavorite = false;
-                          } else {
-                            isFavorite = true;
-                          }
-                        });
+                        if (isFavorite.value) {
+                          isFavorite.value = false;
+                        } else {
+                          isFavorite.value = true;
+                        }
                       },
                       child: Container(
                         height: 50,
                         width: 50,
-                        child: isFavorite
-                            ? Icon(
-                                Icons.favorite_rounded,
-                                color: Colors.redAccent,
-                              )
-                            : Icon(
-                                Icons.favorite_border_rounded,
-                                color: Colors.white,
-                              ),
+                        child: Obx(() {
+                          return isFavorite.value
+                              ? Icon(
+                                  Icons.favorite_rounded,
+                                  color: Colors.redAccent,
+                                )
+                              : Icon(
+                                  Icons.favorite_border_rounded,
+                                  color: Colors.white,
+                                );
+                        }),
                         decoration: BoxDecoration(
                           color: primaryColor,
                           borderRadius: BorderRadius.circular(10),
@@ -238,14 +232,14 @@ class _BookDetailsState extends State<BookDetails> {
                       width: 30,
                     ),
                     Expanded(
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        child: Center(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Get.to(EpubReaderPage("${widget.info.bookPath}"));
-                            },
+                      child: InkWell(
+                        onTap: () {
+                          Get.to(EpubReaderPage("${info.bookPath}"));
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          child: Center(
                             child: Text(
                               'Read'.tr,
                               style: TextStyle(
@@ -255,11 +249,11 @@ class _BookDetailsState extends State<BookDetails> {
                               ),
                             ),
                           ),
-                        ),
-                        decoration: BoxDecoration(
-                          color: primaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: shadowList,
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: shadowList,
+                          ),
                         ),
                       ),
                     )

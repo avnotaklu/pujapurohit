@@ -8,62 +8,62 @@ Color primaryColor = Color(0xff376565);
 List<BoxShadow> shadowList = [BoxShadow(color: (Colors.grey[400])!, blurRadius: 30, offset: Offset(0, 10))];
 
 List<ArtiInfo> artis = [
-  ArtiInfo('Shiv Arti'.tr,'lib/assets/images/place_holder/cat.png'),
-  ArtiInfo('Lakshmi Mata Arti'.tr,'lib/assets/images/place_holder/dog.png'),
-  ArtiInfo('Sarawati Arti'.tr,'lib/assets/images/place_holder/horse.png'),
-  ArtiInfo('Durga Mata Arti'.tr,'lib/assets/images/place_holder/parrot.png'),
-  ArtiInfo('Ambe Mata Arti'.tr,'lib/assets/images/place_holder/rabbit.png'),
-  ArtiInfo('Gayatri MAta Arti'.tr,'lib/assets/images/place_holder/cat.png'),
-  ArtiInfo('Sri Ganesha Arti'.tr,'lib/assets/images/place_holder/dog.png'),
-  ArtiInfo('Sri Gagdish Arti'.tr,'lib/assets/images/place_holder/horse.png'),
-  ArtiInfo('Sri Krishna Arti'.tr,'lib/assets/images/place_holder/parrot.png'),
-  ArtiInfo('Santoshi Mata Arti'.tr,'lib/assets/images/place_holder/rabbit.png'),
+  ArtiInfo('Shiv Arti','lib/assets/images/place_holder/cat.png'),
+  ArtiInfo('Lakshmi Mata Arti','lib/assets/images/place_holder/dog.png'),
+  ArtiInfo('Sarawati Arti','lib/assets/images/place_holder/horse.png'),
+  ArtiInfo('Durga Mata Arti','lib/assets/images/place_holder/parrot.png'),
+  ArtiInfo('Ambe Mata Arti','lib/assets/images/place_holder/rabbit.png'),
+  ArtiInfo('Gayatri MAta Arti','lib/assets/images/place_holder/cat.png'),
+  ArtiInfo('Sri Ganesha Arti','lib/assets/images/place_holder/dog.png'),
+  ArtiInfo('Sri Gagdish Arti','lib/assets/images/place_holder/horse.png'),
+  ArtiInfo('Sri Krishna Arti','lib/assets/images/place_holder/parrot.png'),
+  ArtiInfo('Santoshi Mata Arti','lib/assets/images/place_holder/rabbit.png'),
 ];
 
 List<Map> navList = [
-  {'icon': Icons.phone, 'title': 'Social Media'.tr},
-  {'icon': Icons.markunread_mailbox_rounded, 'title': 'Donation'.tr},
-  {'icon': Icons.add_rounded, 'title': 'Add books'.tr},
-  {'icon': Icons.favorite_rounded, 'title': 'Favorites'.tr},
-  {'icon': Icons.mail_rounded, 'title': 'Messages'.tr},
-  {'icon': Icons.person, 'title': 'Profile'.tr},
+  {'icon': Icons.phone, 'title': 'Social Media'},
+  {'icon': Icons.markunread_mailbox_rounded, 'title': 'Donation'},
+  {'icon': Icons.add_rounded, 'title': 'Add books'},
+  {'icon': Icons.favorite_rounded, 'title': 'Favorites'},
+  {'icon': Icons.mail_rounded, 'title': 'Messages'},
+  {'icon': Icons.person, 'title': 'Profile'},
 ];
 
-List<BookInfo> books = [
-  BookInfo(
+List<BookController> books = [
+  BookController(
     0,
-    'Ramayaan'.tr,
+    'Ramayaan',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
-    'Valmiki'.tr,
+    'Valmiki',
     '250',
   ),
-  BookInfo(1, 'Mahabharat'.tr, 'lib/assets/images/place_holder/mahabharata.png', 'Vyasa'.tr, '140'),
-  BookInfo(
+  BookController(1, 'Mahabharat', 'lib/assets/images/place_holder/mahabharata.png', 'Vyasa', '140'),
+  BookController(
     2,
-    'Gita'.tr,
+    'Gita',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
-    'Vyasa'.tr,
+    'Vyasa',
     '290',
   ),
-  BookInfo(
+  BookController(
     3,
-    'Bharmha puran'.tr,
+    'Bharmha puran',
     'lib/assets/images/place_holder/mahabharata.png',
-    'Ramananda'.tr,
+    'Ramananda',
     '159',
   ),
-  BookInfo(
+  BookController(
     4,
-    'Shiv Puran'.tr,
+    'Shiv Puran',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
-    'Vyasadeva'.tr,
+    'Vyasadeva',
     '270',
   ),
-  BookInfo(
+  BookController(
     5,
-    'Gadur puran'.tr,
+    'Gadur puran',
     'lib/assets/images/place_holder/mahabharata.png',
-    'Vyasadeva'.tr,
+    'Vyasadeva',
     '160',
   ),
 ];

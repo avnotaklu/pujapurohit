@@ -4,22 +4,12 @@ import 'package:get/get.dart';
 import 'package:pujapurohit/localization_service.dart';
 import 'package:pujapurohit/models/samples.dart';
 
-
-class DrawerScreen extends StatefulWidget {
-  @override
-  _DrawerScreenState createState() => _DrawerScreenState();
-}
-
-class _DrawerScreenState extends State<DrawerScreen> {
-  late String lng;
-
-  void initState() {
-    super.initState();
-    lng = LocalizationService().getCurrentLang();
-  }
+class DrawerScreen extends StatelessWidget {
+  late RxString lng = "".obs;
 
   @override
   Widget build(BuildContext context) {
+    lng.value = LocalizationService().getCurrentLang();
     return Container(
       padding: EdgeInsets.all(8.0),
       color: primaryColor,
@@ -59,7 +49,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         color: Colors.grey[500],
                       ),
                       title: Text(
-                        e['title'],
+                        (e['title'] as String).tr,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.grey[500],
@@ -94,14 +84,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ),
                   );
                 }).toList(),
-                value: this.lng,
+                value: this.lng.value,
                 underline: Container(color: Colors.transparent),
                 isExpanded: false,
                 onChanged: (newVal) {
-                  setState(() {
-                    this.lng = newVal!;
-                    LocalizationService().changeLocale(this.lng);
-                  });
+                  this.lng.value = newVal!;
+                  LocalizationService().changeLocale(this.lng.value);
                 },
               ),
             ],

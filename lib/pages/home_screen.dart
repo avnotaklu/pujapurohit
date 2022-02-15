@@ -163,7 +163,7 @@ class BooksSection extends StatelessWidget {
 class BookCard extends StatelessWidget {
   int index;
 
-  BookController info;
+  BookInfo info;
 
 
   BookCard(this.info, this.index);

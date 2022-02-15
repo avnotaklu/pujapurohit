@@ -67,7 +67,8 @@ flutter:
      - lib/assets/images/
      - lib/assets/images/place_holder/
 #     - lib/assets/text/
-     - lib/assets/epub/
+     - lib/assets/epub/english/
+     - lib/assets/epub/hindi/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -9,7 +9,7 @@ import 'package:pujapurohit/utils/epub_reader.dart';
 class BookDetails extends StatelessWidget {
   BookDetails({required this.info});
 
-  BookController info;
+  BookInfo info;
   RxBool isFavorite = false.obs;
 
   @override

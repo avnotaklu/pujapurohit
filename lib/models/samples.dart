@@ -29,37 +29,37 @@ List<Map> navList = [
   {'icon': Icons.person, 'title': 'Profile'},
 ];
 
-List<BookController> books = [
-  BookController(
+List<BookInfo> books = [
+  BookInfo(
     0,
     'Ramayaan',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
     'Valmiki',
     '250',
   ),
-  BookController(1, 'Mahabharat', 'lib/assets/images/place_holder/mahabharata.png', 'Vyasa', '140'),
-  BookController(
+  BookInfo(1, 'Mahabharat', 'lib/assets/images/place_holder/mahabharata.png', 'Vyasa', '140'),
+  BookInfo(
     2,
     'Gita',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
     'Vyasa',
     '290',
   ),
-  BookController(
+  BookInfo(
     3,
     'Bharmha puran',
     'lib/assets/images/place_holder/mahabharata.png',
     'Ramananda',
     '159',
   ),
-  BookController(
+  BookInfo(
     4,
     'Shiv Puran',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
     'Vyasadeva',
     '270',
   ),
-  BookController(
+  BookInfo(
     5,
     'Gadur puran',
     'lib/assets/images/place_holder/mahabharata.png',

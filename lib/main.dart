@@ -49,8 +49,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+<<<<<<< HEAD
       scrollBehavior: MyCustomScrollBehavior(),
 
+=======
+>>>>>>> 0962bbc84f99f40abe34c971e93385190592d0a3
       theme: ThemeData(
         primarySwatch: Colors.orange,
         brightness: Brightness.light,

@@ -5,19 +5,19 @@ import 'package:pujapurohit/models/book.dart';
 
 Color primaryColor = Color(0xff376565);
 
-List<BoxShadow> shadowList = [BoxShadow(color: (Colors.grey[400])!, blurRadius: 30, offset: Offset(0, 10))];
+List<BoxShadow> shadowList = [BoxShadow(color: (Colors.orange[400])!, blurRadius: 10, spreadRadius: 0.2, offset: Offset(2, 2))];
 
 List<ArtiInfo> artis = [
-  ArtiInfo('Shiv Arti','lib/assets/images/place_holder/cat.png'),
-  ArtiInfo('Lakshmi Mata Arti','lib/assets/images/place_holder/dog.png'),
-  ArtiInfo('Sarawati Arti','lib/assets/images/place_holder/horse.png'),
-  ArtiInfo('Durga Mata Arti','lib/assets/images/place_holder/parrot.png'),
-  ArtiInfo('Ambe Mata Arti','lib/assets/images/place_holder/rabbit.png'),
-  ArtiInfo('Gayatri MAta Arti','lib/assets/images/place_holder/cat.png'),
-  ArtiInfo('Sri Ganesha Arti','lib/assets/images/place_holder/dog.png'),
-  ArtiInfo('Sri Gagdish Arti','lib/assets/images/place_holder/horse.png'),
-  ArtiInfo('Sri Krishna Arti','lib/assets/images/place_holder/parrot.png'),
-  ArtiInfo('Santoshi Mata Arti','lib/assets/images/place_holder/rabbit.png'),
+  ArtiInfo('Shiv Arti', 'lib/assets/images/place_holder/cat.png'),
+  ArtiInfo('Lakshmi Mata Arti', 'lib/assets/images/place_holder/dog.png'),
+  ArtiInfo('Sarawati Arti', 'lib/assets/images/place_holder/horse.png'),
+  ArtiInfo('Durga Mata Arti', 'lib/assets/images/place_holder/parrot.png'),
+  ArtiInfo('Ambe Mata Arti', 'lib/assets/images/place_holder/rabbit.png'),
+  ArtiInfo('Gayatri MAta Arti', 'lib/assets/images/place_holder/cat.png'),
+  ArtiInfo('Sri Ganesha Arti', 'lib/assets/images/place_holder/dog.png'),
+  ArtiInfo('Sri Gagdish Arti', 'lib/assets/images/place_holder/horse.png'),
+  ArtiInfo('Sri Krishna Arti', 'lib/assets/images/place_holder/parrot.png'),
+  ArtiInfo('Santoshi Mata Arti', 'lib/assets/images/place_holder/rabbit.png'),
 ];
 
 List<Map> navList = [
@@ -51,6 +51,7 @@ List<BookInfo> books = [
     'lib/assets/images/place_holder/mahabharata.png',
     'Ramananda',
     '159',
+    bookPath: 'lib/assets/epub/hindi/Brahma-puran.epub',
   ),
   BookInfo(
     4,
@@ -65,5 +66,13 @@ List<BookInfo> books = [
     'lib/assets/images/place_holder/mahabharata.png',
     'Vyasadeva',
     '160',
+  ),
+  BookInfo(
+    5,
+    'Vishnu Puran',
+    'lib/assets/images/place_holder/mahabharata.png',
+    'Vyasadeva',
+    '160',
+    bookPath: 'lib/assets/epub/hindi/Vishnu-puran.epub',
   ),
 ];

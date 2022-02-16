@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -27,6 +28,20 @@ void main() async {
   }
   await GetStorage.init();
   runApp(MyApp());
+  // runApp(MaterialApp(
+  //   home: Scaffold(
+  //     body: Container(
+  //       child: ColorFiltered(
+  //         colorFilter: ColorFilter.mode(Colors.cyan, BlendMode.modulate),
+  //         child: Image.asset(
+  //           "lib/assets/images/bookTemplate.png",
+  //           //"lib/assets/images/place_holder/cat.png",
+  //           fit: BoxFit.fill,
+  //         ),
+  //       ),
+  //     ),
+  //   ),
+  // ));
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +49,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      scrollBehavior: MyCustomScrollBehavior(),
+
       theme: ThemeData(
         primarySwatch: Colors.orange,
         brightness: Brightness.light,
@@ -58,4 +75,13 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

@@ -6,8 +6,7 @@ import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
 import 'package:pujapurohit/pages/drawer_screen.dart';
 import 'package:pujapurohit/responsive.dart';
-
-import 'books_details.dart';
+import 'package:pujapurohit/utils/epub_reader.dart';
 
 var colors = [
   // Colors.cyan,
@@ -200,7 +199,7 @@ class BooksSection extends StatelessWidget {
             : ResponsiveWidget.isMediumScreen(context)
                 ? 4
                 : 6,
-        childAspectRatio: ResponsiveWidget.isSmallScreen(context) ? 2.5 : 0.52,
+        childAspectRatio: ResponsiveWidget.isSmallScreen(context) ? 2.5 : 0.55,
         // crossAxisSpacing: 20,
         mainAxisSpacing: 10,
       ),
@@ -216,7 +215,7 @@ class BooksSection extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 20),
           child: GestureDetector(
             onTap: () {
-              Get.to(BookDetails(info: books[index]));
+              Get.to(EpubReaderPage(books[index]));
             },
             child: BookCard(books[index], index, Color(int.parse(colors[index % 4])), Colors.lightGreen.shade100),
             // ? BookCard(books[index], index, colors[0], Colors.lightGreen.shade100)
@@ -241,7 +240,7 @@ class BookCard extends StatelessWidget {
   returnChildren(context) {
     return [
       Expanded(
-        flex: ResponsiveWidget.isSmallScreen(context) ? 5 : 30,
+        flex: ResponsiveWidget.isSmallScreen(context) ? 5 : 13,
         child: BookTemplate(topColor, info, textColor),
       ),
       Expanded(
@@ -286,37 +285,39 @@ class BookCard extends StatelessWidget {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.book,
-                    color: primaryColor,
-                    size: 18,
-                  ),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  AutoSizeText(
-                    'Read'.tr,
-                    minFontSize: 12,
-                    maxFontSize: 14,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 102, 179, 105),
+                  Expanded(
+                    child: Icon(
+                      Icons.book,
+                      color: primaryColor,
+                      size: 18,
                     ),
                   ),
-                  SizedBox(
-                    width: 32,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.share,
-                        color: Colors.grey[500],
+                  Expanded(
+                    flex: 2,
+                    child: AutoSizeText(
+                      'Read'.tr,
+                      minFontSize: 12,
+                      maxFontSize: 14,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 102, 179, 105),
                       ),
-                    ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.share,
+                          color: Colors.grey[500],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               )
@@ -368,39 +369,41 @@ class BookTemplate extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 25),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                child: Container(
-                  child: Hero(
-                      tag: 'pet${info.id}',
-                      child: Image.asset(
-                        info.imagePath,
-                        fit: BoxFit.fill,
-                      )),
-                ),
-              ),
-            ),
-          ),
-          Center(
-            child: Container(
-              padding: EdgeInsets.only(top: 128, left: 20, right: 20),
-              child: AutoSizeText(
-                "${info.name}",
-                maxLines: 1,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: textColor,
-                  fontFamily: 'Hanuman',
-                ),
-                textAlign: TextAlign.center,
-                maxFontSize: 25,
-                minFontSize: 14,
-              ),
-            ),
-          ),
+              padding: EdgeInsets.only(top: 25),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Container(
+                        child: Hero(
+                            tag: 'pet${info.id}',
+                            child: Image.asset(
+                              info.imagePath,
+                              fit: BoxFit.fill,
+                            )),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+                    child: AutoSizeText(
+                      "${info.name}",
+                      wrapWords: false,
+                      maxLines: 2,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: textColor,
+                        fontFamily: 'Hanuman',
+                      ),
+                      textAlign: TextAlign.center,
+                      maxFontSize: 25,
+                      minFontSize: 10,
+                    ),
+                  ),
+                ],
+              )),
         ],
       ),
     );
@@ -422,7 +425,7 @@ class ArtiSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color : Color(0xFFFFF3E2),
+      color: Color(0xFFFFF3E2),
       height: 240,
       child: Padding(
         padding: const EdgeInsets.all(20.0),

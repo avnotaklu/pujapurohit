@@ -59,6 +59,7 @@ List<BookInfo> books = [
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
     'Vyasadeva',
     '270',
+    bookPath: 'lib/assets/epub/hindi/Shiv-puran.epub',
   ),
   BookInfo(
     5,
@@ -66,6 +67,7 @@ List<BookInfo> books = [
     'lib/assets/images/place_holder/mahabharata.png',
     'Vyasadeva',
     '160',
+    bookPath: "lib/assets/epub/hindi/Garur-Puran.epub",
   ),
   BookInfo(
     5,
@@ -73,6 +75,6 @@ List<BookInfo> books = [
     'lib/assets/images/place_holder/mahabharata.png',
     'Vyasadeva',
     '160',
-    bookPath: 'lib/assets/epub/hindi/Vishnu-puran.epub',
+    bookPath: 'lib/assets/epub/hindi/Vishnu-Purana.epub',
   ),
 ];

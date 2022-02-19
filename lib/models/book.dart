@@ -6,7 +6,6 @@ class BookInfo {
   final String writer;
 
   final String likedBy;
-  String bookPath;
 
-  BookInfo(this.id, this.name, this.imagePath, this.writer, this.likedBy, {this.bookPath = "lib/assets/epub/hindi/Vishnu-Purana.epub"});
+  BookInfo(this.id, this.name, this.imagePath, this.writer, this.likedBy);
 }

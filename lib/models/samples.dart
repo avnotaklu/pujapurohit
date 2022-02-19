@@ -54,7 +54,7 @@ List<BookInfo> books = [
   ),
   BookInfo(
     4,
-    'Shiv-Maha-Purana',
+    'Shiva-Maha-Purana',
     'lib/assets/images/place_holder/ramayan__1_-removebg-preview.png',
     'Vyasadeva',
     '270',

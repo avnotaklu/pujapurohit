@@ -1,0 +1,7 @@
+#Mon Feb 21 20:05:50 IST 2022
+base.1=/home/ssp/dart/flutter/pujapurohit/android/build/app/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+path.1=classes.dex
+base.0=/home/ssp/dart/flutter/pujapurohit/android/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

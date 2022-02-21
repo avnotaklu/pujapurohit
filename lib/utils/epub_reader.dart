@@ -8,11 +8,12 @@ import 'package:get/state_manager.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
+import 'package:http/http.dart' as http;
 
 String countriesQuery = """
 query {
   country(code : "IN"){
-    url
+    name
   }
 }
 """;

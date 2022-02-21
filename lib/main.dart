@@ -23,71 +23,77 @@ Future<Box> openHiveBox(String boxName) async {
   return await Hive.openBox(boxName);
 }
 
-Future<GraphQLClient> getClient(httpLink) async {
+getClient(httpLink) async {
   Directory appDocDirectory;
   if (!kIsWeb) {
     appDocDirectory = await getApplicationDocumentsDirectory();
   } else {
-    appDocDirectory = Directory("my/cache/path");
+    appDocDirectory = Directory(".");
   }
 
   /// initialize Hive and wrap the default box in a HiveStore
   final store = await HiveStore.open(path: appDocDirectory.path);
-  return GraphQLClient(
-    /// pass the store to the cache for persistence
-    cache: GraphQLCache(store: store),
-    link: httpLink,
-  );
+  return store;
 }
 
 void main() async {
-  if (kIsWeb) {
-    var envVars = await dotenv.load(fileName: ".release.env");
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-      options: FirebaseOptions(
-          apiKey: dotenv.env['APIKEY']!,
-          appId: dotenv.env['APPID']!,
-          messagingSenderId: dotenv.env['MESSAGINGSENDERID']!,
-          projectId: dotenv.env['PROJECTID']!),
-    );
-  } else {
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
-  }
+  // if (kIsWeb) {
+  //   var envVars = await dotenv.load(fileName: ".release.env");
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   await Firebase.initializeApp(
+  //     options: FirebaseOptions(
+  //         apiKey: dotenv.env['APIKEY']!,
+  //         appId: dotenv.env['APPID']!,
+  //         messagingSenderId: dotenv.env['MESSAGINGSENDERID']!,
+  //         projectId: dotenv.env['PROJECTID']!),
+  //   );
+  // } else {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   await Firebase.initializeApp();
+  // }
   await GetStorage.init();
 
   HttpLink httpLink;
   if (kIsWeb) {
-    httpLink = HttpLink('https://puja-purohit-books.herokuapp.com/graphql', defaultHeaders: {
-      "Access-Control-Allow-Headers": "Access-Control-Allow-Origin, Accept",
-      "Accept": "application/json",
-    });
+    httpLink = HttpLink(
+        //"https://countries.trevorblades.com/",
+        //  'http://localhost:8080/graphql',
+        // );
+        'https://puja-purohit-books.herokuapp.com/graphql',
+        defaultHeaders: {
+          // "Access-Control-Allow-Headers": "*",
+          "Accept": "application/json",
+        });
   } else {
     httpLink = HttpLink(
       'https://puja-purohit-books.herokuapp.com/graphql',
       defaultHeaders: {
-        "Access-Control-Allow-Headers": "Access-Control-Allow-Origin, Accept",
+        "Access-Control-Allow-Headers": "*",
         "Accept": "application/json",
       },
     );
   }
 
-  // final QueryOptions options = QueryOptions(
-  //   document: gql(booksQuery("Vishnu-Purana")),
+  // return GraphQLClient(
+  //   /// pass the store to the cache for persistence
+  //   cache: GraphQLCache(store: getStore(httpLink)),
+  //   link: httpLink,
   // );
+
+  // final QueryOptions options = QueryOptions(
+  //     //document: gql(countriesQuery),
+  //     document: gql(booksQuery("Vishnu-Purana")));
 
   // var client = await getClient(httpLink);
 
   // final QueryResult result = await client.query(options);
 
   // print(result);
-  await openHiveBox("boxName");
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
       link: httpLink,
       // The default store is the InMemoryStore, which does NOT persist to disk
-      cache: GraphQLCache(store: HiveStore(await openHiveBox("hello"))),
+      cache: GraphQLCache(store: await getClient(httpLink)),
     ),
   );
 

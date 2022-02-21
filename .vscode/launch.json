@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "chrome-8080",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "-d",
+                "chrome",
+                "web-port",
+                "8080",
+            ]
+        },
+        {
             "name": "pujapurohit",
             "request": "launch",
             "type": "dart",

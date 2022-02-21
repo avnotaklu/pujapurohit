@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:pujapurohit/localization_service.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
+import 'package:pujapurohit/pages/arti_page.dart';
 import 'package:pujapurohit/pages/drawer_screen.dart';
 import 'package:pujapurohit/responsive.dart';
 import 'package:pujapurohit/utils/epub_reader.dart';
@@ -438,7 +440,7 @@ class ArtiSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: ArtiCard(Color(int.parse(colors[index % 4])), Colors.lightGreen.shade100, artis[index].name.tr, artis[index].imagePath),
+                child: ArtiCard(index, Color(int.parse(colors[index % 4])), Colors.lightGreen.shade100, artis[index].name.tr, artis[index].imagePath),
                 // ArtiCard(index % 2 == 0 ? colors[0] : colors[1], Colors.lightGreen.shade100, artis[index].name.tr, artis[index].imagePath),
               );
             }),
@@ -448,43 +450,55 @@ class ArtiSection extends StatelessWidget {
 }
 
 class ArtiCard extends StatelessWidget {
+  final int item_no;
   final String name;
   final String path;
   final Color topColor;
   final Color textColor;
 
-  ArtiCard(this.topColor, this.textColor, this.name, this.path);
+  ArtiCard(this.item_no, this.topColor, this.textColor, this.name, this.path);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 180,
-      color: topColor,
-      padding: EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Expanded(
-            flex: 10,
-            child: Image(
-              image: AssetImage(path),
-              fit: BoxFit.fill,
+    return InkWell(
+      onTap: () {
+        Get.to(AartiPage(item_no));
+        // Get.to(Container());
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //       builder: (context) => AartiPage(item_no),
+        //     ));
+      },
+      child: Container(
+        width: 180,
+        color: topColor,
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 10,
+              child: Image(
+                image: AssetImage(path),
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Expanded(
-            flex: 3,
-            child: AutoSizeText(
-              "${name}",
-              maxLines: 2,
-              style: TextStyle(color: textColor, fontFamily: 'Hanuman'),
-              textAlign: TextAlign.center,
-              maxFontSize: 25,
-              minFontSize: 18,
+            SizedBox(
+              height: 10.0,
             ),
-          ),
-        ],
+            Expanded(
+              flex: 3,
+              child: AutoSizeText(
+                "${name}",
+                maxLines: 2,
+                style: TextStyle(color: textColor, fontFamily: 'Hanuman'),
+                textAlign: TextAlign.center,
+                maxFontSize: 25,
+                minFontSize: 18,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

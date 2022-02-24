@@ -27,13 +27,21 @@ query {
 """;
 
 Future<Uint8List> _loadFromNet(String url) async {
-  Uint8List bytes = (await NetworkAssetBundle(
-    Uri.parse("${url}"),
-  ).load("${url}"))
-      .buffer
-      .asUint8List();
-
-  return bytes;
+  // Uint8List bytes = (await NetworkAssetBundle(
+  //   Uri.parse("${url}"),
+  // ).load("${url}"))
+  //     .buffer
+  //     .asUint8List();
+  // return bytes;
+  http.Response response = await http.get(
+    //Uri.parse('${url}'),
+    Uri.parse('https://firebasestorage.googleapis.com/v0/b/baduk-8a3a6.appspot.com/o/Garuda-Purana.epub?alt=media&token=3b84e91e-83e2-4c6d-9d02-aa78700fb774'),
+      // Uri.parse(
+      //     'https://onuploads.com/cgi-bin/dl.cgi/y3ix23dcsur7arnkkavf3sia72u6y2wuaot743kyc7k3e3sn4nlp5da/The%20Hobbit%20by%20J.R.R.%20Tolkien.epub'),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      });
+  return response.bodyBytes;
 }
 
 Future<Uint8List> _loadFromAssets(String assetName) async {

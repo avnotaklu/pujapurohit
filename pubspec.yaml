@@ -20,6 +20,11 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.14.0 <3.0.0"
 
+dependency_overrides:
+  firebase_messaging_platform_interface: 3.1.6
+
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -47,14 +52,13 @@ dependencies:
   graphql: ^5.0.1
   flutter_markdown: ^0.6.9
   just_audio: ^0.9.5
-  assets_audio_player: ^3.0.4+1
-  # assets_audio_player_web: ^3.0.4+1
+  assets_audio_player: ^3.0.3
   cupertino_icons: ^1.0.2
   share: ^2.0.4
   get: 4.6.1
   get_storage: ^2.0.3
   firebase_analytics: ^9.1.0
-  cloud_firestore: ^3.1.8
+  cloud_firestore: 3.1.8
   firebase_auth: ^3.3.7
   http: ^0.13.4
 

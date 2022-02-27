@@ -12,8 +12,8 @@ class BookDetails extends StatelessWidget {
   BookDetails(this.info);
 
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      child: Container(
+    return Scaffold(
+      body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(children: [
@@ -233,7 +233,7 @@ class BookDetails extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.to(EpubReaderPage(info));
+                        Get.to(EpubReaderPage(info,"English"));
                       },
                       child: Expanded(
                         child: Container(

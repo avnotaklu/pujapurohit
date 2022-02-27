@@ -6,6 +6,7 @@ import 'package:pujapurohit/localization_service.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
 import 'package:pujapurohit/pages/arti_page.dart';
+import 'package:pujapurohit/pages/books_details.dart';
 import 'package:pujapurohit/pages/drawer_screen.dart';
 import 'package:pujapurohit/responsive.dart';
 import 'package:pujapurohit/utils/epub_reader.dart';
@@ -215,14 +216,9 @@ class BooksSection extends StatelessWidget {
         // print(Color(int.parse(colors[1].toString())).toString());
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
-          child: GestureDetector(
-            onTap: () {
-              Get.to(EpubReaderPage(books[index]));
-            },
-            child: BookCard(books[index], index, Color(int.parse(colors[index % 4])), Colors.lightGreen.shade100),
-            // ? BookCard(books[index], index, colors[0], Colors.lightGreen.shade100)
-            // : BookCard(books[index], index, colors[1], Colors.lightGreen.shade100),
-          ),
+          child: BookCard(books[index], index, Color(int.parse(colors[index % 4])), Colors.lightGreen.shade100),
+          // ? BookCard(books[index], index, colors[0], Colors.lightGreen.shade100)
+          // : BookCard(books[index], index, colors[1], Colors.lightGreen.shade100),
         );
       },
     );
@@ -332,21 +328,25 @@ class BookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        //boxShadow: shadowList,
-      ),
-      child: ResponsiveWidget.isSmallScreen(context)
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: returnChildren(context),
-            )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: returnChildren(context),
-            ),
-    );
+    return GestureDetector(
+        onTap: () {
+          Get.to(BookDetails(info));
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            //boxShadow: shadowList,
+          ),
+          child: ResponsiveWidget.isSmallScreen(context)
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: returnChildren(context),
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: returnChildren(context),
+                ),
+        ));
   }
 }
 

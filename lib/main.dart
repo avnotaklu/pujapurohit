@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:path/path.dart' as path;
+import 'package:http/http.dart' as http;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -56,39 +58,21 @@ void main() async {
   HttpLink httpLink;
   if (kIsWeb) {
     httpLink = HttpLink(
-        //"https://countries.trevorblades.com/",
-        //  'http://localhost:8080/graphql',
-        // );
-        'https://puja-purohit-books.herokuapp.com/graphql',
+        //'https://puja-purohit-books.herokuapp.com/graphql',
+        'http://localhost:8080/graphql',
         defaultHeaders: {
-          // "Access-Control-Allow-Headers": "*",
           "Accept": "application/json",
         });
   } else {
     httpLink = HttpLink(
-      'https://puja-purohit-books.herokuapp.com/graphql',
+      // 'https://puja-purohit-books.herokuapp.com/graphql',
+        'http:/192.168.43.25:8080/graphql',
       defaultHeaders: {
         "Access-Control-Allow-Headers": "*",
         "Accept": "application/json",
       },
     );
   }
-
-  // return GraphQLClient(
-  //   /// pass the store to the cache for persistence
-  //   cache: GraphQLCache(store: getStore(httpLink)),
-  //   link: httpLink,
-  // );
-
-  // final QueryOptions options = QueryOptions(
-  //     //document: gql(countriesQuery),
-  //     document: gql(booksQuery("Vishnu-Purana")));
-
-  // var client = await getClient(httpLink);
-
-  // final QueryResult result = await client.query(options);
-
-  // print(result);
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
       link: httpLink,
@@ -98,6 +82,16 @@ void main() async {
   );
 
   runApp(MyApp(client));
+  // var imageUrl = "";
+  // var response = await http.get(Uri.parse(imageUrl));
+  // //final documentDirectory = await getApplicationDocumentsDirectory();
+  // final documentDirectory = Directory("lib/");
+
+  // String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+  // File file = File(path.join(documentDirectory.path, 'newestfile.epub'));
+  // file.writeAsBytes(response.bodyBytes);
+
+  // final file = await getFileFromNetworkImage();
 
   // runApp(MaterialApp(
   //   home: Scaffold(

@@ -115,3 +115,9 @@ List<ArtiInfo> artis = [
   ArtiInfo(
       'Maa Ganga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/ganga_aarti.md', 'lib/assets/assets_music_music1.mp3'),
 ];
+
+
+const List<String> langs = [
+  "English",
+  "Hindi",
+];

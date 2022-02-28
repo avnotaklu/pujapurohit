@@ -1,8 +1,10 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:assets_audio_player_web/assets_audio_player_web.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pujapurohit/models/samples.dart';
+
 class ArtiAudioPlayer extends StatefulWidget {
   int index;
   ArtiAudioPlayer(this.index);
@@ -11,23 +13,23 @@ class ArtiAudioPlayer extends StatefulWidget {
   _ArtiAudioPlayerState createState() => _ArtiAudioPlayerState();
 }
 
-class _ArtiAudioPlayerState extends State<ArtiAudioPlayer>
-    with SingleTickerProviderStateMixin {
+class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProviderStateMixin {
   late AnimationController iconController;
 
   bool isAnimated = false;
   bool showPlay = true;
   bool shopPause = false;
   AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
+  final ArtiInfo = Get.put(List_Arti());
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    iconController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
-    audioPlayer.open(Audio(artis[0].music_link),
-        autoStart: false, showNotification: true);
+    iconController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
+
+    audioPlayer.open(Audio(ArtiInfo.artis[0].music_link), autoStart: false, showNotification: true);
     final Duration position = audioPlayer.currentPosition.value;
   }
 
@@ -36,14 +38,15 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer>
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(child: Image.asset(artis[widget.index].imagePath),),
+        Container(
+          child: Image.asset(ArtiInfo.artis[widget.index].imagePath),
+        ),
         Card(
           elevation: 7.0,
-
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      color: const Color(0xffFFF3E2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+          ),
+          color: const Color(0xffFFF3E2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -59,19 +62,18 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer>
                   // radius: 16,
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage(
-                   artis[widget.index].imagePath,
+                    ArtiInfo.artis[widget.index].imagePath,
                   ),
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               Column(
                 children: [
-                 Text(
-                    artis[widget.index].name,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.amber),
+                  Text(
+                    ArtiInfo.artis[widget.index].name,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.amber),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -112,16 +114,16 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer>
     );
   }
 
-  void animateIcon() {
+  void animateIcon() async {
+    await audioPlayer.play();
+    // await audioPlayer.pause();
     setState(() {
       isAnimated = !isAnimated;
 
       if (isAnimated) {
         iconController.forward();
-        audioPlayer.play();
       } else {
         iconController.reverse();
-        audioPlayer.pause();
       }
     });
   }

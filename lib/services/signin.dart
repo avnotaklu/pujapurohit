@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:get/get.dart';
 import 'package:pujapurohit/blocs/auth_bloc.dart';
 import 'package:provider/provider.dart';
@@ -29,12 +28,12 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SignInButton(
-            Buttons.Google,
-            onPressed: () {
-              authBloc.loginGoogle();
-            },
-          ),
+          // SignInButton(
+          //   Buttons.Google,
+          //   onPressed: () {
+          //     authBloc.loginGoogle();
+          //   },
+          // ),
         ]),
       ),
     );

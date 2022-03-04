@@ -29,7 +29,7 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProv
 
     iconController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
 
-    audioPlayer.open(Audio(ArtiInfo.artis[0].music_link), autoStart: false, showNotification: true);
+    audioPlayer.open(Audio("lib/assets/audio/assets_music_music1.mp3"), autoStart: false, showNotification: true);
     final Duration position = audioPlayer.currentPosition.value;
   }
 

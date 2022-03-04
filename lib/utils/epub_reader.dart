@@ -108,25 +108,28 @@ class EpubReaderPage extends StatelessWidget {
                           ),
                         ),
                         actions: [
-                          Expanded(
-                            child: DropdownButton(
-                              value: lang,
-                              onChanged: (value) async {
-                                // await Get.deleteAll(force: true);
-                                // await Get.delete<EbookController>(tag: "${lang.value}", force: true);
-                                
-                                lang = value as String;
-                                _epubController.value!.dispose();
-                                Get.close(1);
 
-                                Get.to(EpubReaderPage(info, value),routeName: "Reader-${value}");
-                                //controller._epubController?.value = null;
-                                // controller.bookLoaded.value = false;
-                              },
-                              items: [
-                                DropdownMenuItem(value: "${langs[0]}", child: Text("${langs[0]}")),
-                                DropdownMenuItem(value: "${langs[1]}", child: Text("${langs[1]}"))
-                              ],
+                          Align(
+                            alignment: Alignment.centerRight,
+                            
+                              child: DropdownButton(
+                                value: lang,
+                                onChanged: (value) async {
+                                  // await Get.deleteAll(force: true);
+                                  // await Get.delete<EbookController>(tag: "${lang.value}", force: true);
+                                  
+                                  lang = value as String;
+                                  _epubController.value!.dispose();
+                                  Get.close(1);
+                          
+                                  Get.to(EpubReaderPage(info, value),routeName: "Reader-${value}");
+                                  //controller._epubController?.value = null;
+                                  // controller.bookLoaded.value = false;
+                                },
+                                items: [
+                                  DropdownMenuItem(value: "${langs[0]}", child: Text("${langs[0]}")),
+                                  DropdownMenuItem(value: "${langs[1]}", child: Text("${langs[1]}"))
+                                ],
                             ),
                           )
                         ],

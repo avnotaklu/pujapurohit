@@ -235,7 +235,6 @@ class BookDetails extends StatelessWidget {
                       onTap: () {
                         Get.to(EpubReaderPage(info,"English"));
                       },
-                      child: Expanded(
                         child: Container(
                           height: 50,
                           width: 50,
@@ -256,7 +255,6 @@ class BookDetails extends StatelessWidget {
                           ),
                         ),
                       ),
-                    )
                   ],
                 ),
               ),

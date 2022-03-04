@@ -58,15 +58,13 @@ void main() async {
   HttpLink httpLink;
   if (kIsWeb) {
     httpLink = HttpLink(
-        //'https://puja-purohit-books.herokuapp.com/graphql',
-        'http://localhost:8080/graphql',
+        'https://puja-purohit-books.herokuapp.com/graphql',
         defaultHeaders: {
           "Accept": "application/json",
         });
   } else {
     httpLink = HttpLink(
-      // 'https://puja-purohit-books.herokuapp.com/graphql',
-        'http:/192.168.43.25:8080/graphql',
+       'https://puja-purohit-books.herokuapp.com/graphql',
       defaultHeaders: {
         "Access-Control-Allow-Headers": "*",
         "Accept": "application/json",

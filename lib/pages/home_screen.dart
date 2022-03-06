@@ -38,156 +38,148 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: Obx(() {
-        return Stack(
-          children: [
-            //DrawerScreen(),
-            AnimatedContainer(
-              decoration: isDrawerOpen.value
-                  ? BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                    )
-                  : BoxDecoration(color: Colors.white),
-              transform: Matrix4.translationValues(xOffset.value, yOffset.value, 0)..scale(scaleFactor.value),
-              duration: Duration(milliseconds: 250),
-              child: SingleChildScrollView(
-                child: SafeArea(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        return SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 5.0,
+                ),
+                TopBar(context, lng),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    Expanded(
+                      flex: ResponsiveWidget.isSmallScreen(context)
+                          ? 30
+                          : ResponsiveWidget.isMediumScreen(context)
+                              ? 20
+                              : 7,
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: Column(
                           children: [
-                            isDrawerOpen.value
-                                ? IconButton(
-                                    onPressed: () {
-                                      xOffset.value = 0;
-                                      yOffset.value = 0;
-                                      scaleFactor.value = 1;
-                                      isDrawerOpen.value = false;
-                                    },
-                                    icon: Icon(Icons.arrow_back_ios),
-                                  )
-                                : IconButton(
-                                    onPressed: () {
-                                      xOffset.value = 230;
-                                      yOffset.value = 150;
-                                      scaleFactor.value = 0.6;
-                                      isDrawerOpen.value = true;
-                                    },
-                                    icon: Icon(Icons.menu),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            SearchBar(),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: AutoSizeText(
+                                  "Artis".tr,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'Poly',
                                   ),
-                            Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.book_sharp,
-                                      color: primaryColor,
-                                      size: 20,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Puja, ',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text('Purohit'),
-                                ],
+                                  textAlign: TextAlign.left,
+                                  maxFontSize: 40,
+                                  minFontSize: 30,
+                                ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(right: 10.0),
-                              child: CircleAvatar(
-                                backgroundImage: AssetImage('lib/assets/images/place_holder/Lucifer.jpeg'),
+                            ArtiSection(),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: AutoSizeText(
+                                  "Popular Books".tr,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'Poly',
+                                  ),
+                                  textAlign: TextAlign.left,
+                                  maxFontSize: 40,
+                                  minFontSize: 30,
+                                ),
                               ),
+                            ),
+                            BooksSection(),
+                            SizedBox(
+                              height: 20.0,
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Row(
-                        children: [
-                          Spacer(),
-                          Expanded(
-                            flex: ResponsiveWidget.isSmallScreen(context)
-                                ? 30
-                                : ResponsiveWidget.isMediumScreen(context)
-                                    ? 20
-                                    : 7,
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 30.0,
-                                  ),
-                                  SearchBar(),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: AutoSizeText(
-                                        "Artis".tr,
-                                        maxLines: 1,
-                                        style: TextStyle(
-                                          color: Colors.black87,
-                                          fontFamily: 'Poly',
-                                        ),
-                                        textAlign: TextAlign.left,
-                                        maxFontSize: 40,
-                                        minFontSize: 30,
-                                      ),
-                                    ),
-                                  ),
-                                  ArtiSection(),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: AutoSizeText(
-                                        "Popular Books".tr,
-                                        maxLines: 1,
-                                        style: TextStyle(
-                                          color: Colors.black87,
-                                          fontFamily: 'Poly',
-                                        ),
-                                        textAlign: TextAlign.left,
-                                        maxFontSize: 40,
-                                        minFontSize: 30,
-                                      ),
-                                    ),
-                                  ),
-                                  BooksSection(),
-                                  SizedBox(
-                                    height: 20.0,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Spacer(),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    Spacer(),
+                  ],
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         );
       }),
     );
   }
+}
+
+TopBar(BuildContext context, lng) {
+  return Container(
+    margin: EdgeInsets.symmetric(horizontal: 5.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.menu),
+        ),
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.book_sharp,
+                  color: primaryColor,
+                  size: 20,
+                ),
+              ),
+              Text(
+                'Puja, ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text('Purohit'),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(right: 10.0),
+          child: CircleAvatar(
+            backgroundImage: AssetImage('lib/assets/images/place_holder/Lucifer.jpeg'),
+          ),
+        ),
+        DropdownButton<String>(
+          items: LocalizationService.langs.map((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(
+                value,
+                style: TextStyle(color: Colors.grey[500]),
+              ),
+            );
+          }).toList(),
+          value: lng.value,
+          underline: Container(color: Colors.transparent),
+          isExpanded: false,
+          onChanged: (newVal) {
+            lng.value = newVal!;
+            LocalizationService().changeLocale(lng.value);
+          },
+        ),
+      ],
+    ),
+  );
 }
 
 class BooksSection extends StatelessWidget {
@@ -255,7 +247,7 @@ class BookCard extends StatelessWidget {
               AutoSizeText(
                 info.name.tr,
                 wrapWords: true,
-                minFontSize: 15,
+                minFontSize: 10,
                 maxFontSize: 20,
                 maxLines: 2,
                 style: TextStyle(
@@ -266,7 +258,7 @@ class BookCard extends StatelessWidget {
               ),
               AutoSizeText(
                 info.writer.tr,
-                minFontSize: 13,
+                minFontSize: 10,
                 maxFontSize: 16,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -290,14 +282,15 @@ class BookCard extends StatelessWidget {
                     child: Icon(
                       Icons.book,
                       color: primaryColor,
-                      size: 18,
+                      size: 16,
                     ),
                   ),
                   Expanded(
                     flex: 2,
                     child: AutoSizeText(
                       'Read'.tr,
-                      minFontSize: 12,
+                      maxLines: 1,
+                      minFontSize: 10,
                       maxFontSize: 14,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -305,16 +298,19 @@ class BookCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 4,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.share,
-                          color: Colors.grey[500],
-                        ),
-                      ],
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Expanded(
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.share,
+                            color: Colors.grey[500],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -391,7 +387,7 @@ class BookTemplate extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                     child: AutoSizeText(
-                      "${info.name}",
+                      "${info.name}".tr,
                       wrapWords: false,
                       maxLines: 2,
                       style: TextStyle(

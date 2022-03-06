@@ -67,58 +67,58 @@ const List<String> langs = [
   "Hindi",
 ];
 
+
 List<ArtiInfo> artis = [
-  ArtiInfo('Shiv Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/shiv_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Lakshmi Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/lakshami_aarti.md',
+  ArtiInfo('Shiv Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/shiv_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Saraswati Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/saraswati_aarti.md',
+  ArtiInfo('Lakshmi Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/lakshami_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Maa Durga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/durga_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Maa Ambe Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ambe_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Gayatri Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/gayatri_aarti.md',
+  ArtiInfo('Saraswati Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/saraswati_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri Ganesh Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ganesh_aarti.md',
+  ArtiInfo('Durga Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/durga_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri jagdish Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/jagdish_aarti.md',
+  ArtiInfo('Ambe Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ambe_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri Krishna Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/krishna_aarti.md',
+  ArtiInfo('Gayatri Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/gayatri_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Santoshi Mata Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/santoshi_aarti.md',
+  ArtiInfo('Sri Ganesh Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ganesh_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Shri Ram Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ram_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Kali Maa Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/mahakali_aarti.md',
+  ArtiInfo('Sri jagdish Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/jagdish_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Shri Ganpati Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/hello.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Hanumaan Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/hanumaan_aarti.md',
+  ArtiInfo('Sri Krishna Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/krishna_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Sharda Maa Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/sharda_aarti.md',
+  ArtiInfo('Santoshi Mata Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/santoshi_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  //ArtiInfo('Maa Durga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png','lib/assets/markdown/artis/english/hello.md'),
-  // ArtiInfo('Sai Baba Aarti '.tr, 'lib/assets/images/artis/ganpati1.png',''),
-  ArtiInfo('Shri Vishkarma ji Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vishkarma_aarti.md',
+  ArtiInfo('Shri Ram Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ram_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shitla Maa Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/shitla_aarti.md',
+  ArtiInfo('Kali Maa Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/mahakali_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri Vishnu Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vishnu_aarti.md',
+  ArtiInfo('Shri Ganpati Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/hello.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Vaishno Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vaishnu_aarti.md',
+  ArtiInfo('Hanumaan Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/hanumaan_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Paarvati Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/paarvati_aarti.md',
+  ArtiInfo('Sharda Maa Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/sharda_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri Bala ji Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/bala_g_aarti.md',
+  //ArtiInfo('Maa Durga Arti'.tr, 'lib/assets/images/artis/ganpati1.png','lib/assets/markdown/artis/english/hello.md'),
+  // ArtiInfo('Sai Baba Arti '.tr, 'lib/assets/images/artis/ganpati1.png',''),
+  ArtiInfo('Shri Vishkarma ji Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vishkarma_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Shri Prshuram Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/parshuram_aarti.md',
+  ArtiInfo('Shitla Maa Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/shitla_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Mahadev Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/mahadev_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Saraswati Aarti'.tr, 'lib/assets/images/artis/rabbit.png', 'lib/assets/markdown/artis/english/saraswati_aarti.md',
+  ArtiInfo('Shri Vishnu Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vishnu_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo(
-      'Maa Ganga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ganga_aarti.md', 'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Maa Vaishno Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/vaishnu_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Maa Paarvati Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/paarvati_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Shri Bala ji Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/bala_g_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Shri Prshuram Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/parshuram_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Mahadev Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/mahadev_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
+  ArtiInfo('Maa Ganga Arti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/english/ganga_aarti.md',
+      'lib/assets/assets_music_music1.mp3'),
 ];
 // List<ArtiInfo> artis = [
 //   ArtiInfo('Shiv Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/hello.md', 'lib/assets/assets_music_music1.mp3'),
@@ -173,8 +173,6 @@ List<ArtiInfo> artis = [
 //   ArtiInfo(
 //       'Maa Ganga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/ganga_aarti.md', 'lib/assets/assets_music_music1.mp3'),
 //   ];
-
-
 
 // class List_Arti extends GetxController{
 //   List<ArtiInfo> artis = [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:pujapurohit/localization_service.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
 import 'package:pujapurohit/utils/epub_reader.dart';
@@ -124,7 +125,7 @@ class BookDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          info.name,
+                          info.name.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 21.0,
@@ -142,7 +143,7 @@ class BookDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          info.writer,
+                          info.writer.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[500],
@@ -233,7 +234,7 @@ class BookDetails extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.to(EpubReaderPage(info,"English"));
+                        Get.to(EpubReaderPage(info,LocalizationService().getCurrentLang()));
                       },
                         child: Container(
                           height: 50,

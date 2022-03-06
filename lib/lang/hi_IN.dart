@@ -21,8 +21,6 @@ const Map<String, String> hiIN = {
   "Aartis": "आरती",
   "PopularBooks": "लोकप्रिय पुस्तकें",
   "Raamayan": "रामायण",
-  "Mahabharat": "महाभारत",
-  "Gita": "गीता",
   "Katha": "कथा",
   "Famous Mahapurans": "प्रसिद्ध महापुराण",
   "Mail us": "मेल करें",
@@ -36,7 +34,6 @@ const Map<String, String> hiIN = {
   'Add books': 'किताबें जोड़ें',
   'Favorites': 'पसंदीदा पुस्तकें',
   'Messages': 'संदेश',
-  'Ramayaan': 'रामायण:',
   'Mythology books': 'पौराणिक पुस्तकें',
   'Valmiki': 'वाल्मीकि',
   'Vyasa': 'व्यास',
@@ -46,14 +43,53 @@ const Map<String, String> hiIN = {
   'Please share if to appriciate us': 'कृपया साझा करें हमें सराहना करने के लिए',
   'Read': 'पढ़ें',
   'Search Book': 'किताबें ढूंढो',
+
+
+/* HOMEPAGE */
+  'Popular Books': 'लोकप्रिय पुस्तकें',
+  'Artis': 'आरती',
+
+//Books
+  "Mahabharat": "महाभारत",
+  "Gita": "गीता",
+  'Ramayaan': 'रामायण:',
+  'Shiv Puran': 'शिव पुराण',
+  'Brahma-Purana': 'ब्रह्मा पुराण',
+  'Vishnu-Purana': 'विष्णु पुराण',
+  'Garuda-Purana': 'गरुड़ पुराण',
+  'Shiva-Maha-Purana': 'शिव महा पुराण',
+
+//Arti
   'Shiv Arti': 'शिव आरती',
   'Lakshmi Mata Arti': 'लक्ष्मी माता आरती',
-  'Sarawati Arti': 'सरस्वती आरती',
+  'Saraswati Mata Arti': 'सरस्वती आरती',
   'Durga Mata Arti': 'दुर्गा माता आरती',
   'Ambe Mata Arti': 'अम्बे माता आर्टि',
   'Gayatri MAta Arti': 'गायत्री माता आरती',
-  'Sri Ganesha Arti': 'श्री गणेश आरती',
-  'Sri Gagdish Arti': 'श्री गगदीश आरती',
+  'Sri Ganesh Arti': 'श्री गणेश आरती',
+  'Sri jagdish Arti': 'श्री गगदीश आरती',
   'Sri Krishna Arti': 'श्री कृष्ण आरती',
   'Santoshi Mata Arti': 'संतोषी माता आरती',
+  'Gayatri Mata Arti': 'गायत्री माता आरती',
+  'Sri Ganesha Arti': 'श्री गणेश आरती',
+  'Sri Gagdish Arti': 'श्री गगदीश आरती',
+  'Shri Ram Arti': 'श्री राम आरती',
+  'Kali Maa Arti': 'काली माता आरती',
+  'Shri Ganpati Arti': 'श्री गणपति आरती',
+  'Hanumaan Arti': 'हनुमान आरती',
+  'Sharda Maa Arti': 'शारदा माता की आरती',
+  'Maa Durga Arti': 'मां दुर्गा आरती',
+  'Sai Baba Arti ': 'साईं बाबा आरती',
+  'Shri Vishkarma ji Arti': 'श्री विश्वकर्मा जी आरती',
+  'Shitla Maa Arti': 'शीतला माता की आरती',
+  'Shri Vishnu Arti': 'श्री विष्णु आरती',
+  'Maa Vaishno Arti': 'माँ वैष्णो कला',
+  'Maa Paarvati Arti': 'माँ पार्वती आरती',
+  'Shri Bala ji Arti': 'श्री बाला जी आर्टि',
+  'Shri Prshuram Arti': 'श्री परशुराम आरती',
+  'Mahadev Arti': 'महादेव आरती',
+  'Maa Ganga Arti': 'माँ गंगा आरती',
+
+
+
 };

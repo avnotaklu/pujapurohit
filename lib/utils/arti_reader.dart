@@ -20,7 +20,6 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProv
   bool showPlay = true;
   bool shopPause = false;
   AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
-  final ArtiInfo = Get.put(List_Arti());
 
   @override
   void initState() {
@@ -39,7 +38,7 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProv
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          child: Image.asset(ArtiInfo.artis[widget.index].imagePath),
+          child: Image.asset(artis[widget.index].imagePath),
         ),
         Card(
           elevation: 7.0,
@@ -62,8 +61,8 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProv
                   // radius: 16,
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage(
-                    ArtiInfo.artis[widget.index].imagePath,
-                  ),
+                    artis[widget.index].imagePath,
+                 ),
                 ),
               ),
               SizedBox(
@@ -72,7 +71,7 @@ class _ArtiAudioPlayerState extends State<ArtiAudioPlayer> with SingleTickerProv
               Column(
                 children: [
                   Text(
-                    ArtiInfo.artis[widget.index].name,
+                    artis[widget.index].name,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.amber),
                   ),
                   Row(

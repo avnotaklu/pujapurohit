@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/home/ssp/dart/flutter/flutter"
+export "FLUTTER_ROOT=/mnt/30D8EED6D8EE997C/dev/flutter/flutter"
 export "FLUTTER_APPLICATION_PATH=/home/ssp/dart/flutter/pujapurohit/android"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib/main.dart"

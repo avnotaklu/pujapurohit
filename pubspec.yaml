@@ -79,7 +79,7 @@ flutter:
     - lib/assets/
     - lib/assets/images/
     - lib/assets/images/artis/
-    - lib/assets/markdown/artis/
+    - lib/assets/markdown/artis/english/
     - lib/assets/fonts/english/
     - lib/assets/images/place_holder/
     #     - lib/assets/text/

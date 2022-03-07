@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pujapurohit/utils/musicPlayer.dart';
 import '../utils/arti_reader.dart';
 import 'aarti_page_drawer.dart';
 import 'arti_page.dart';
@@ -65,7 +66,7 @@ class WideScreenAartiPage extends StatelessWidget {
       Obx(
         () => Expanded(
           flex: 3,
-          child: Container(child: ArtiAudioPlayer(item_no.value)),
+          child: Container(child: MusicPlayer(item_no.value)),
         ),
       )
     ])));

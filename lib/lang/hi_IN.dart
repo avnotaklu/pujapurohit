@@ -53,7 +53,6 @@ const Map<String, String> hiIN = {
   "Mahabharat": "महाभारत",
   "Gita": "गीता",
   'Ramayaan': 'रामायण:',
-  'Shiv Puran': 'शिव पुराण',
   'Brahma-Purana': 'ब्रह्मा पुराण',
   'Vishnu-Purana': 'विष्णु पुराण',
   'Garuda-Purana': 'गरुड़ पुराण',

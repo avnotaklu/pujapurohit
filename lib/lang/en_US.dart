@@ -41,7 +41,6 @@ const Map<String, String> enUS = {
   "Raamayan": "Raamayan",
   "Mahabharat": "Mahabharat",
   'Ramayaan': 'Ramayaan',
-  'Shiv Puran': 'Shiv Puran',
   'Brahma-Purana': 'Brahma Purana',
   'Vishnu-Purana': 'Vishnu Purana',
   'Garuda-Purana': 'Garuda Purana',
